@@ -1,0 +1,71 @@
+/* Navigation Layout Component Styles */
+.navigation-fixed {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  z-index: 50;
+}
+
+/* Mobile Navigation - Bottom Bar */
+@media (max-width: 768px) {
+  .navigation-fixed {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    right: auto;
+    top: auto;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 400px;
+  }
+
+  .mobile-nav-container {
+    border-radius: 1.5rem !important;
+    padding: 0.75rem 1rem !important;
+    background: rgba(17, 24, 39, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(75, 85, 99, 0.3) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .mobile-nav-list {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 0 !important;
+    margin: 0 !important;
+  }
+
+  .mobile-nav-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mobile-nav-button {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    margin: 0 !important;
+  }
+
+  .mobile-tooltip {
+    display: none !important;
+  }
+}
+
+/* Tablet Navigation */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navigation-fixed {
+    right: 1rem;
+  }
+}
+
+/* Desktop Navigation - Keep original behavior */
+@media (min-width: 1025px) {
+  .navigation-fixed {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+  }
+}

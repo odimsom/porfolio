@@ -1,0 +1,313 @@
+<div class="max-w-7xl mx-auto px-6">
+  <!-- Education Section -->
+  <div class="mb-20">
+    <h2 class="text-4xl font-bold text-white text-center mb-4">
+      <span class="text-blue-400">Educación</span>
+    </h2>
+    <p class="text-gray-300 text-lg text-center mb-16 max-w-3xl mx-auto">
+      Tengo una sólida formación educativa en ingeniería de sistemas y
+      programación. Siempre estoy buscando nuevas oportunidades para aprender y
+      crecer.
+    </p>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Timeline line -->
+      <div
+        class="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500"
+      ></div>
+
+      <div class="space-y-12">
+        <div
+          *ngFor="let item of educationItems; let i = index"
+          class="relative flex items-center"
+          [class.md:flex-row-reverse]="i % 2 === 0"
+        >
+          <!-- Timeline dot -->
+          <div
+            class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 z-10"
+            [ngClass]="{
+              'bg-blue-500 border-blue-400': item.status === 'current',
+              'bg-purple-500 border-purple-400': item.status === 'completed'
+            }"
+          ></div>
+
+          <!-- Content -->
+          <div
+            class="w-full md:w-1/2 ml-16 md:ml-0"
+            [class.md:pr-12]="i % 2 !== 0"
+            [class.md:pl-12]="i % 2 === 0"
+          >
+            <div
+              class="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 group"
+            >
+              <!-- Header -->
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex-1">
+                  <h3
+                    class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300"
+                  >
+                    {{ item.title }}
+                  </h3>
+                  <p class="text-blue-400 font-medium">{{ item.subtitle }}</p>
+                  <p class="text-gray-300 text-sm">{{ item.institution }}</p>
+                </div>
+                <span
+                  class="px-3 py-1 text-xs font-medium rounded-full border"
+                  [ngClass]="{
+                    'bg-green-500/20 text-green-400 border-green-500/30':
+                      item.status === 'current',
+                    'bg-blue-500/20 text-blue-400 border-blue-500/30':
+                      item.status === 'completed'
+                  }"
+                >
+                  {{ item.status === "current" ? "En curso" : "Completado" }}
+                </span>
+              </div>
+
+              <!-- Period and Location -->
+              <div class="flex flex-wrap gap-4 mb-4 text-sm">
+                <div class="flex items-center gap-2 text-gray-400">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  {{ item.period }}
+                </div>
+                <div class="flex items-center gap-2 text-gray-400">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  {{ item.location }}
+                </div>
+              </div>
+
+              <!-- Description -->
+              <p class="text-gray-300 text-sm leading-relaxed">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificates Section -->
+  <div>
+    <h2 class="text-4xl font-bold text-white text-center mb-4">
+      <span class="text-blue-400">Certificados</span>
+    </h2>
+    <p class="text-gray-300 text-lg text-center mb-16 max-w-3xl mx-auto">
+      He obtenido varios certificados que demuestran mis habilidades y
+      conocimientos en programación y desarrollo de software. Siempre estoy
+      buscando nuevas oportunidades para aprender y crecer.
+    </p>
+
+    <!-- ITLA Certificates -->
+    <div class="mb-12">
+      <h3 class="text-2xl font-bold text-white mb-8 text-center">
+        Educación Continua <span class="text-purple-400">ITLA</span>
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          *ngFor="let cert of getITLACertificates()"
+          class="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/10 group"
+        >
+          <!-- Header -->
+          <div class="flex items-start gap-4 mb-4">
+            <!-- Icon -->
+            <div
+              class="flex-shrink-0 w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center border border-purple-500/30"
+            >
+              <svg
+                class="w-6 h-6 text-purple-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0z"
+                />
+              </svg>
+            </div>
+
+            <div class="flex-1">
+              <h4
+                class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors duration-300"
+              >
+                {{ cert.title }}
+              </h4>
+              <p class="text-purple-400 font-medium">{{ cert.issuer }}</p>
+            </div>
+          </div>
+
+          <!-- Date -->
+          <div class="flex items-center gap-2 text-gray-400 text-sm mb-4">
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+            {{ cert.date }}
+          </div>
+
+          <!-- Skills -->
+          <div class="mb-6">
+            <div class="flex flex-wrap gap-2">
+              <span
+                *ngFor="let skill of cert.skills"
+                class="px-2 py-1 text-xs font-medium rounded-md bg-purple-500/20 text-purple-400 border border-purple-500/30"
+              >
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Status -->
+          <div
+            class="w-full px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg text-center"
+          >
+            <span class="text-purple-400 text-sm font-medium"
+              >Certificado ITLA</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Udemy Certificates -->
+    <div>
+      <h3 class="text-2xl font-bold text-white mb-8 text-center">
+        Cursos <span class="text-orange-400">Udemy</span>
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div
+          *ngFor="let cert of getUdemyCertificates()"
+          class="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30 hover:border-orange-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/10 group"
+        >
+          <!-- Header -->
+          <div class="flex items-start gap-4 mb-4">
+            <!-- Icon -->
+            <div
+              class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center border"
+              [ngClass]="{
+                'bg-red-500/20 border-red-500/30': cert.icon === 'angular',
+                'bg-yellow-500/20 border-yellow-500/30': cert.icon === 'python'
+              }"
+            >
+              <!-- Angular Icon -->
+              <svg
+                *ngIf="cert.icon === 'angular'"
+                class="w-6 h-6 text-red-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2L1 6l2 14.5L12 22l9-1.5L23 6L12 2z" />
+              </svg>
+              <!-- Python Icon -->
+              <svg
+                *ngIf="cert.icon === 'python'"
+                class="w-6 h-6 text-yellow-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0C8.84 0 8.11.42 8.11 1.11V4H16v1H5.78C4.6 5 3.41 5.62 2.81 7.35c-.75 2.13-.78 3.45 0 5.72.58 1.7 1.97 2.93 3.16 2.93h2.03v-2.78c0-1.81 1.55-3.41 3.38-3.41h6.84c1.51 0 2.72-1.25 2.72-2.75V2.86C20.94 1.32 19.38 0 17.86 0H12z"
+                />
+              </svg>
+            </div>
+
+            <div class="flex-1">
+              <h4
+                class="text-lg font-bold text-white group-hover:text-orange-400 transition-colors duration-300"
+              >
+                {{ cert.title }}
+              </h4>
+              <p class="text-orange-400 font-medium">{{ cert.issuer }}</p>
+            </div>
+          </div>
+
+          <!-- Date -->
+          <div class="flex items-center gap-2 text-gray-400 text-sm mb-4">
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+            {{ cert.date }}
+          </div>
+
+          <!-- Skills -->
+          <div class="mb-6">
+            <div class="flex flex-wrap gap-2">
+              <span
+                *ngFor="let skill of cert.skills"
+                class="px-2 py-1 text-xs font-medium rounded-md border"
+                [ngClass]="{
+                  'bg-red-500/20 text-red-400 border-red-500/30':
+                    cert.icon === 'angular',
+                  'bg-yellow-500/20 text-yellow-400 border-yellow-500/30':
+                    cert.icon === 'python'
+                }"
+              >
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Status -->
+          <div
+            class="w-full px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-lg text-center"
+          >
+            <span class="text-orange-400 text-sm font-medium"
+              >Curso Online</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

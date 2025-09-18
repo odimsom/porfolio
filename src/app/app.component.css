@@ -1,0 +1,16 @@
+/* Solo estilos esenciales para el fondo de partículas - el resto es Tailwind */
+particle-background {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -1 !important;
+  pointer-events: auto !important;
+}
+
+/* Asegurar que el contenido esté por encima */
+::ng-deep router-outlet + * {
+  position: relative;
+  z-index: 2;
+}
