@@ -9,7 +9,6 @@ interface SkillCategory {
 
 interface Skill {
   name: string;
-  level: number; // 1-5
   color: string;
 }
 
@@ -26,71 +25,65 @@ export class SkillsComponent {
       title: 'Frontend',
       icon: 'frontend',
       skills: [
-        { name: 'Angular', level: 4, color: 'text-red-500' },
-        { name: 'TypeScript', level: 4, color: 'text-blue-500' },
-        { name: 'JavaScript', level: 5, color: 'text-yellow-500' },
-        { name: 'HTML5', level: 5, color: 'text-orange-500' },
-        { name: 'CSS3', level: 4, color: 'text-blue-400' },
-        { name: 'Tailwind CSS', level: 4, color: 'text-cyan-500' },
-        { name: 'Bootstrap', level: 4, color: 'text-purple-500' },
-        { name: 'Dart/Flutter', level: 3, color: 'text-blue-600' },
+        { name: 'Angular', color: 'text-red-500' },
+        { name: 'TypeScript', color: 'text-blue-500' },
+        { name: 'JavaScript', color: 'text-yellow-500' },
+        { name: 'HTML5', color: 'text-orange-500' },
+        { name: 'CSS3', color: 'text-blue-400' },
+        { name: 'Tailwind CSS', color: 'text-cyan-500' },
+        { name: 'Bootstrap', color: 'text-purple-500' },
+        { name: 'Dart/Flutter', color: 'text-blue-600' },
       ],
     },
     {
       title: 'Backend',
       icon: 'backend',
       skills: [
-        { name: 'C#', level: 5, color: 'text-purple-600' },
-        { name: '.NET Core', level: 5, color: 'text-purple-500' },
-        { name: 'ASP.NET Core MVC', level: 5, color: 'text-blue-600' },
-        { name: 'Node.js', level: 4, color: 'text-green-500' },
-        { name: 'Express.js', level: 4, color: 'text-gray-600' },
-        { name: 'Entity Framework', level: 5, color: 'text-blue-500' },
-        { name: 'Sequelize', level: 4, color: 'text-blue-400' },
-        { name: 'Go', level: 3, color: 'text-cyan-600' },
-        { name: 'Quarkus', level: 3, color: 'text-red-600' },
+        { name: 'C#', color: 'text-purple-600' },
+        { name: '.NET Core', color: 'text-purple-500' },
+        { name: 'ASP.NET Core MVC', color: 'text-blue-600' },
+        { name: 'Node.js', color: 'text-green-500' },
+        { name: 'Express.js', color: 'text-gray-600' },
+        { name: 'Entity Framework', color: 'text-blue-500' },
+        { name: 'Sequelize', color: 'text-blue-400' },
+        { name: 'Go', color: 'text-cyan-600' },
+        { name: 'Quarkus', color: 'text-red-600' },
       ],
     },
     {
-      title: 'Cloud & DevOps',
+      title: 'Nube y DevOps',
       icon: 'cloud',
       skills: [
-        { name: 'AWS', level: 3, color: 'text-orange-600' },
-        { name: 'Azure', level: 3, color: 'text-blue-600' },
-        { name: 'CI/CD', level: 4, color: 'text-green-600' },
-        { name: 'Azure DevOps', level: 3, color: 'text-blue-500' },
-        { name: 'Git', level: 5, color: 'text-orange-500' },
-        { name: 'GitHub', level: 5, color: 'text-gray-600' },
+        { name: 'AWS', color: 'text-orange-600' },
+        { name: 'Azure', color: 'text-blue-600' },
+        { name: 'CI/CD', color: 'text-green-600' },
+        { name: 'Azure DevOps', color: 'text-blue-500' },
+        { name: 'Git', color: 'text-orange-500' },
+        { name: 'GitHub', color: 'text-gray-600' },
       ],
     },
     {
-      title: 'Database',
+      title: 'Base de Datos',
       icon: 'database',
       skills: [
-        { name: 'SQL Server', level: 4, color: 'text-red-600' },
-        { name: 'MySQL', level: 4, color: 'text-blue-500' },
-        { name: 'SQLite', level: 4, color: 'text-blue-400' },
-        { name: 'Oracle', level: 3, color: 'text-red-500' },
-        { name: 'SQL', level: 5, color: 'text-gray-600' },
+        { name: 'SQL Server', color: 'text-red-600' },
+        { name: 'MySQL', color: 'text-blue-500' },
+        { name: 'SQLite', color: 'text-blue-400' },
+        { name: 'Oracle', color: 'text-red-500' },
+        { name: 'SQL', color: 'text-gray-600' },
       ],
     },
     {
-      title: 'Arquitectura & Patrones',
+      title: 'Arquitectura y Patrones',
       icon: 'architecture',
       skills: [
-        { name: 'Onion Architecture', level: 4, color: 'text-purple-500' },
-        { name: 'CQRS + MediatR', level: 4, color: 'text-blue-500' },
-        { name: 'Repository Pattern', level: 4, color: 'text-green-500' },
-        { name: 'SOLID Principles', level: 4, color: 'text-yellow-600' },
-        { name: 'MVC Pattern', level: 5, color: 'text-red-500' },
-        { name: 'Scrum/Agile', level: 4, color: 'text-blue-600' },
+        { name: 'Onion Architecture', color: 'text-purple-500' },
+        { name: 'CQRS + MediatR', color: 'text-blue-500' },
+        { name: 'Repository Pattern', color: 'text-green-500' },
+        { name: 'SOLID Principles', color: 'text-yellow-600' },
+        { name: 'MVC Pattern', color: 'text-red-500' },
+        { name: 'Scrum/Agile', color: 'text-blue-600' },
       ],
     },
   ];
-
-  getStarArray(level: number): boolean[] {
-    return Array(5)
-      .fill(false)
-      .map((_, i) => i < level);
-  }
 }

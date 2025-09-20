@@ -22,11 +22,11 @@ interface NavigationItem {
 })
 export class NavigationLayoutComponent implements OnInit, OnDestroy {
   navigationItems: NavigationItem[] = [
-    { icon: 'home', href: '#home', name: 'Home' },
-    { icon: 'cog', href: '#skills', name: 'Skills' },
-    { icon: 'code', href: '#projects', name: 'Projects' },
-    { icon: 'graduation-cap', href: '#education', name: 'Education' },
-    { icon: 'envelope', href: '#contact', name: 'Contact' },
+    { icon: 'home', href: '#home', name: 'Inicio' },
+    { icon: 'cog', href: '#skills', name: 'Habilidades' },
+    { icon: 'code', href: '#projects', name: 'Proyectos' },
+    { icon: 'graduation-cap', href: '#education', name: 'Educación' },
+    { icon: 'envelope', href: '#contact', name: 'Contacto' },
   ];
 
   activeSection: string = 'home';

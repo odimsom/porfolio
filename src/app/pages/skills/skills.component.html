@@ -1,6 +1,6 @@
 <div class="max-w-7xl mx-auto px-6">
   <h2 class="text-4xl font-bold text-white text-center mb-12">
-    Technical <span class="text-blue-400">Skills</span>
+    Habilidades <span class="text-blue-400">Técnicas</span>
   </h2>
 
   <!-- Skills Grid with Staggered Layout -->
@@ -73,17 +73,14 @@
       </div>
 
       <!-- Skills List - All Skills Shown -->
-      <div class="space-y-2">
-        <div
-          *ngFor="let skill of category.skills"
-          class="flex items-center justify-between"
-        >
+      <div class="space-y-3">
+        <div *ngFor="let skill of category.skills" class="flex items-center">
           <!-- Skill with specific technology icon -->
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-3">
             <!-- Angular Icon -->
             <svg
               *ngIf="skill.name === 'Angular'"
-              class="w-4 h-4 text-red-500"
+              class="w-5 h-5 text-red-500"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -94,7 +91,7 @@
             <!-- TypeScript Icon -->
             <svg
               *ngIf="skill.name === 'TypeScript'"
-              class="w-4 h-4 text-blue-500"
+              class="w-5 h-5 text-blue-500"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -105,7 +102,7 @@
             <!-- JavaScript Icon -->
             <svg
               *ngIf="skill.name === 'JavaScript'"
-              class="w-4 h-4 text-yellow-500"
+              class="w-5 h-5 text-yellow-500"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -116,7 +113,7 @@
             <!-- HTML5 Icon -->
             <svg
               *ngIf="skill.name === 'HTML5'"
-              class="w-4 h-4 text-orange-500"
+              class="w-5 h-5 text-orange-500"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -127,7 +124,7 @@
             <!-- CSS3 Icon -->
             <svg
               *ngIf="skill.name === 'CSS3'"
-              class="w-4 h-4 text-blue-400"
+              class="w-5 h-5 text-blue-400"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -138,7 +135,7 @@
             <!-- Tailwind CSS Icon -->
             <svg
               *ngIf="skill.name === 'Tailwind CSS'"
-              class="w-4 h-4 text-cyan-500"
+              class="w-5 h-5 text-cyan-500"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -149,7 +146,7 @@
             <!-- Bootstrap Icon -->
             <svg
               *ngIf="skill.name === 'Bootstrap'"
-              class="w-4 h-4 text-purple-500"
+              class="w-5 h-5 text-purple-500"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -160,7 +157,7 @@
             <!-- C# Icon -->
             <svg
               *ngIf="skill.name === 'C#'"
-              class="w-4 h-4 text-purple-600"
+              class="w-5 h-5 text-purple-600"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -171,7 +168,7 @@
             <!-- .NET Core Icon -->
             <svg
               *ngIf="skill.name === '.NET Core'"
-              class="w-4 h-4 text-purple-500"
+              class="w-5 h-5 text-purple-500"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -182,7 +179,7 @@
             <!-- Node.js Icon -->
             <svg
               *ngIf="skill.name === 'Node.js'"
-              class="w-4 h-4 text-green-500"
+              class="w-5 h-5 text-green-500"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -193,7 +190,7 @@
             <!-- AWS Icon -->
             <svg
               *ngIf="skill.name === 'AWS'"
-              class="w-4 h-4 text-orange-600"
+              class="w-5 h-5 text-orange-600"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -204,7 +201,7 @@
             <!-- Azure Icon -->
             <svg
               *ngIf="skill.name === 'Azure'"
-              class="w-4 h-4 text-blue-600"
+              class="w-5 h-5 text-blue-600"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -214,7 +211,7 @@
             <!-- Git Icon -->
             <svg
               *ngIf="skill.name === 'Git'"
-              class="w-4 h-4 text-orange-500"
+              class="w-5 h-5 text-orange-500"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -225,7 +222,7 @@
             <!-- GitHub Icon -->
             <svg
               *ngIf="skill.name === 'GitHub'"
-              class="w-4 h-4 text-gray-600"
+              class="w-5 h-5 text-gray-600"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -236,7 +233,7 @@
             <!-- SQL Server Icon -->
             <svg
               *ngIf="skill.name === 'SQL Server'"
-              class="w-4 h-4 text-red-600"
+              class="w-5 h-5 text-red-600"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -247,7 +244,7 @@
             <!-- MySQL Icon -->
             <svg
               *ngIf="skill.name === 'MySQL'"
-              class="w-4 h-4 text-blue-500"
+              class="w-5 h-5 text-blue-500"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -258,7 +255,7 @@
             <!-- Flutter Icon -->
             <svg
               *ngIf="skill.name === 'Dart/Flutter'"
-              class="w-4 h-4 text-blue-600"
+              class="w-5 h-5 text-blue-600"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -269,7 +266,7 @@
             <!-- Go Icon -->
             <svg
               *ngIf="skill.name === 'Go'"
-              class="w-4 h-4 text-cyan-600"
+              class="w-5 h-5 text-cyan-600"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -301,28 +298,13 @@
                   'Go'
                 ].includes(skill.name)
               "
-              class="w-3 h-3 rounded-full"
+              class="w-5 h-5 rounded-full"
               [ngClass]="skill.color.replace('text-', 'bg-')"
             ></div>
 
-            <span class="font-medium text-xs" [class]="skill.color">{{
+            <span class="font-semibold text-sm" [class]="skill.color">{{
               skill.name
             }}</span>
-          </div>
-
-          <!-- Star Rating -->
-          <div class="flex space-x-1">
-            <svg
-              *ngFor="let filled of getStarArray(skill.level)"
-              class="w-3 h-3 transition-colors duration-200"
-              [class]="filled ? 'text-blue-400' : 'text-gray-600'"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"
-              />
-            </svg>
           </div>
         </div>
       </div>
@@ -332,7 +314,7 @@
   <!-- Soft Skills Section -->
   <div class="mt-16 text-center">
     <h3 class="text-2xl font-bold text-white mb-8">
-      Professional <span class="text-blue-400">Aptitudes</span>
+      Aptitudes <span class="text-blue-400">Profesionales</span>
     </h3>
 
     <div
@@ -375,7 +357,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-green-200 transition-colors duration-300"
-            >Comprometido</span
+            >Compromiso</span
           >
         </div>
       </div>
@@ -396,7 +378,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-orange-200 transition-colors duration-300"
-            >Problem Solving</span
+            >Resolución de Problemas</span
           >
         </div>
       </div>
@@ -417,7 +399,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-purple-200 transition-colors duration-300"
-            >Team Work</span
+            >Trabajo en Equipo</span
           >
         </div>
       </div>
@@ -438,7 +420,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-cyan-200 transition-colors duration-300"
-            >Adaptability</span
+            >Adaptabilidad</span
           >
         </div>
       </div>
@@ -459,7 +441,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-yellow-200 transition-colors duration-300"
-            >Innovation</span
+            >Innovación</span
           >
         </div>
       </div>

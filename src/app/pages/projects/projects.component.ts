@@ -39,7 +39,7 @@ export class ProjectsComponent {
         { name: 'CQRS', color: 'text-cyan-500' },
       ],
       githubUrl: 'https://github.com/odimsom/HermesBanking',
-      category: 'Full-Stack',
+      category: 'Completo',
       featured: true,
     },
     {
@@ -61,7 +61,7 @@ export class ProjectsComponent {
     {
       title: 'Portfolio Personal',
       description:
-        'Portafolio personal desarrollado con Angular 19, featuring partículas interactivas, diseño responsive, sección de skills con rating system y navegación SPA fluida.',
+        'Portafolio personal desarrollado con Angular 19, incluye partículas interactivas, diseño responsive, sección de skills con rating system y navegación SPA fluida.',
       technologies: [
         { name: 'Angular', color: 'text-red-500' },
         { name: 'TypeScript', color: 'text-blue-500' },
@@ -71,6 +71,7 @@ export class ProjectsComponent {
       ],
       githubUrl: '#', // Se actualizará cuando se despliegue
       category: 'Frontend',
+      liveUrl: 'http://francastroporfolio.netlify.app',
       featured: true,
     },
     {
@@ -86,7 +87,7 @@ export class ProjectsComponent {
         { name: 'YouTube API', color: 'text-red-600' },
       ],
       githubUrl: 'https://github.com/odimsom/ITLANetworking',
-      category: 'Full-Stack',
+      category: 'Completo',
       featured: false,
     },
     {
@@ -103,7 +104,7 @@ export class ProjectsComponent {
         { name: 'jQuery', color: 'text-blue-600' },
       ],
       githubUrl: 'https://github.com/odimsom/AppCenar',
-      category: 'Full-Stack',
+      category: 'Completo',
       featured: false,
     },
   ];
