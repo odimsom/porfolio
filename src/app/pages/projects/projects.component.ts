@@ -105,6 +105,7 @@ export class ProjectsComponent {
       ],
       githubUrl: 'https://github.com/odimsom/AppCenar',
       category: 'Completo',
+      liveUrl: 'https://appcenar.onrender.com',
       featured: false,
     },
   ];
