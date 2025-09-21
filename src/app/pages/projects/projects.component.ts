@@ -56,7 +56,7 @@ export class ProjectsComponent {
       githubUrl: 'https://github.com/odimsom/Country-App',
       liveUrl: 'https://countryappfdcb.netlify.app/',
       category: 'Frontend',
-      featured: true,
+      featured: false,
     },
     {
       title: 'Portfolio Personal',
@@ -72,7 +72,7 @@ export class ProjectsComponent {
       githubUrl: '#', // Se actualizará cuando se despliegue
       category: 'Frontend',
       liveUrl: 'http://francastroporfolio.netlify.app',
-      featured: true,
+      featured: false,
     },
     {
       title: 'ITLANetworking',
@@ -88,7 +88,7 @@ export class ProjectsComponent {
       ],
       githubUrl: 'https://github.com/odimsom/ITLANetworking',
       category: 'Completo',
-      featured: false,
+      featured: true,
     },
     {
       title: 'AppCenar',
@@ -106,7 +106,7 @@ export class ProjectsComponent {
       githubUrl: 'https://github.com/odimsom/AppCenar',
       category: 'Completo',
       liveUrl: 'https://appcenar.onrender.com',
-      featured: false,
+      featured: true,
     },
   ];
 
