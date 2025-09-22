@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { TranslationService } from '../../../../services/translation.service';
 
 @Component({
   selector: 'app-profile-info',
@@ -8,4 +9,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProfileInfoComponent {}
+export class ProfileInfoComponent {
+  constructor(public translationService: TranslationService) {}
+}

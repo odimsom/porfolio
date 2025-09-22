@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 
 interface Project {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   technologies: Technology[];
   githubUrl: string;
   liveUrl?: string;
@@ -24,11 +25,12 @@ interface Technology {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent {
+  translationService = inject(TranslationService);
+
   projects: Project[] = [
     {
-      title: 'HermesBanking',
-      description:
-        'Sistema bancario empresarial completo con ASP.NET Core MVC que incluye gestión de usuarios, cuentas de ahorro, tarjetas de crédito, préstamos, transacciones y panel administrativo integral. Implementa Onion Architecture con CQRS, MediatR y JWT. *No desplegado por requerir infraestructura bancaria especializada y servicios de pago certificados.*',
+      titleKey: 'HermesBanking',
+      descriptionKey: 'projects.hermesBanking.description',
       technologies: [
         { name: 'C#', color: 'text-purple-600' },
         { name: 'ASP.NET Core', color: 'text-purple-500' },
@@ -43,9 +45,8 @@ export class ProjectsComponent {
       featured: true,
     },
     {
-      title: 'Country App',
-      description:
-        'Aplicación web para encontrar países y sus informaciones por regiones, países y capitales. Lista cada país respectivamente y permite ver más información como bandera, idiomas, moneda, etc.',
+      titleKey: 'Country App',
+      descriptionKey: 'projects.countryApp.description',
       technologies: [
         { name: 'Angular', color: 'text-red-500' },
         { name: 'TypeScript', color: 'text-blue-500' },
@@ -59,9 +60,8 @@ export class ProjectsComponent {
       featured: false,
     },
     {
-      title: 'Portfolio Personal',
-      description:
-        'Portafolio personal desarrollado con Angular 19, incluye partículas interactivas, diseño responsive, sección de skills con rating system y navegación SPA fluida.',
+      titleKey: 'Portfolio Personal',
+      descriptionKey: 'projects.portfolio.description',
       technologies: [
         { name: 'Angular', color: 'text-red-500' },
         { name: 'TypeScript', color: 'text-blue-500' },
@@ -75,9 +75,8 @@ export class ProjectsComponent {
       featured: false,
     },
     {
-      title: 'ITLANetworking',
-      description:
-        'Red social completa con ASP.NET Core MVC: autenticación, gestión de amistades, publicaciones multimedia y juego Battleship integrado. Implementa Onion Architecture y Repository Pattern.',
+      titleKey: 'ITLANetworking',
+      descriptionKey: 'projects.itlaNetworking.description',
       technologies: [
         { name: 'C#', color: 'text-purple-600' },
         { name: 'ASP.NET Core', color: 'text-purple-500' },
@@ -91,9 +90,8 @@ export class ProjectsComponent {
       featured: true,
     },
     {
-      title: 'AppCenar',
-      description:
-        'Aplicación web completa para gestión de pedidos de delivery que conecta clientes, comercios y repartidores en una plataforma integrada. Arquitectura MVC con Node.js y Express.',
+      titleKey: 'AppCenar',
+      descriptionKey: 'projects.appCenar.description',
       technologies: [
         { name: 'Node.js', color: 'text-green-500' },
         { name: 'Express.js', color: 'text-gray-600' },

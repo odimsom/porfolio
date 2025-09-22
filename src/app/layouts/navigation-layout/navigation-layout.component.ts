@@ -5,12 +5,14 @@ import {
   OnInit,
   OnDestroy,
   ChangeDetectorRef,
+  computed,
 } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 
 interface NavigationItem {
   icon: string;
   href: string;
-  name: string;
+  nameKey: string; // Cambiamos name por nameKey para usar las claves de traducción
 }
 
 @Component({
@@ -22,16 +24,19 @@ interface NavigationItem {
 })
 export class NavigationLayoutComponent implements OnInit, OnDestroy {
   navigationItems: NavigationItem[] = [
-    { icon: 'home', href: '#home', name: 'Inicio' },
-    { icon: 'cog', href: '#skills', name: 'Habilidades' },
-    { icon: 'code', href: '#projects', name: 'Proyectos' },
-    { icon: 'graduation-cap', href: '#education', name: 'Educación' },
-    { icon: 'envelope', href: '#contact', name: 'Contacto' },
+    { icon: 'home', href: '#home', nameKey: 'nav.home' },
+    { icon: 'cog', href: '#skills', nameKey: 'nav.skills' },
+    { icon: 'code', href: '#projects', nameKey: 'nav.projects' },
+    { icon: 'graduation-cap', href: '#education', nameKey: 'nav.education' },
+    { icon: 'envelope', href: '#contact', nameKey: 'nav.contact' },
   ];
 
   activeSection: string = 'home';
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    public translationService: TranslationService
+  ) {}
 
   ngOnInit() {
     // Listen for scroll events to update active section
@@ -75,5 +80,9 @@ export class NavigationLayoutComponent implements OnInit, OnDestroy {
 
   isActive(href: string): boolean {
     return this.activeSection === href.substring(1);
+  }
+
+  getNavItemName(nameKey: string): string {
+    return this.translationService.translate(nameKey);
   }
 }

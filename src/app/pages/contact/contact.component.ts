@@ -3,9 +3,11 @@ import {
   Component,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
+  inject,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { TranslationService } from '../../services/translation.service';
 
 interface ContactForm {
   name: string;
@@ -22,6 +24,8 @@ interface ContactForm {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {
+  translationService = inject(TranslationService);
+
   contactForm: ContactForm = {
     name: '',
     email: '',

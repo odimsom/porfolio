@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 
 interface SkillCategory {
-  title: string;
+  titleKey: string;
   icon: string;
   skills: Skill[];
 }
@@ -20,9 +21,11 @@ interface Skill {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent {
+  translationService = inject(TranslationService);
+
   skillCategories: SkillCategory[] = [
     {
-      title: 'Frontend',
+      titleKey: 'skills.frontend',
       icon: 'frontend',
       skills: [
         { name: 'Angular', color: 'text-red-500' },
@@ -36,7 +39,7 @@ export class SkillsComponent {
       ],
     },
     {
-      title: 'Backend',
+      titleKey: 'skills.backend',
       icon: 'backend',
       skills: [
         { name: 'C#', color: 'text-purple-600' },
@@ -51,7 +54,7 @@ export class SkillsComponent {
       ],
     },
     {
-      title: 'Nube y DevOps',
+      titleKey: 'skills.cloud',
       icon: 'cloud',
       skills: [
         { name: 'AWS', color: 'text-orange-600' },
@@ -63,7 +66,7 @@ export class SkillsComponent {
       ],
     },
     {
-      title: 'Base de Datos',
+      titleKey: 'skills.database',
       icon: 'database',
       skills: [
         { name: 'SQL Server', color: 'text-red-600' },
@@ -74,7 +77,7 @@ export class SkillsComponent {
       ],
     },
     {
-      title: 'Arquitectura y Patrones',
+      titleKey: 'skills.architecture',
       icon: 'architecture',
       skills: [
         { name: 'Onion Architecture', color: 'text-purple-500' },

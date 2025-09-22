@@ -1,14 +1,20 @@
 <div class="text-center">
   <h1
-    class="text-5xl font-bold text-white mb-3 tracking-wide whitespace-nowrap"
+    class="text-5xl font-bold mb-3 tracking-wide whitespace-nowrap"
+    style="color: var(--primary-text)"
   >
-    <span class="text-blue-400">Fran</span>cisco Castro
+    <span style="color: var(--accent-color)">Fran</span>cisco Castro
   </h1>
-  <p class="text-lg text-white/80 leading-relaxed max-w-md mx-auto mb-3">
-    Systems Engineer <span class="text-blue-400">|</span> Full Stack Developer
+  <p
+    class="text-lg leading-relaxed max-w-md mx-auto mb-3"
+    style="color: var(--secondary-text)"
+  >
+    {{ translationService.translate("profile.title") }}
   </p>
-  <p class="text-sm text-white/70 leading-relaxed max-w-sm mx-auto text-center">
-    Apasionado por el desarrollo de software y la innovación tecnológica, con
-    experiencia en crear soluciones eficientes y escalables.
+  <p
+    class="text-sm leading-relaxed max-w-sm mx-auto text-center"
+    style="color: var(--secondary-text); opacity: 0.8"
+  >
+    {{ translationService.translate("profile.description") }}
   </p>
 </div>

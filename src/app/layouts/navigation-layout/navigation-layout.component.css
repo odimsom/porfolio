@@ -23,10 +23,10 @@
   .mobile-nav-container {
     border-radius: 1.5rem !important;
     padding: 0.75rem 1rem !important;
-    background: rgba(17, 24, 39, 0.95) !important;
+    background: var(--secondary-bg) !important;
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(75, 85, 99, 0.3) !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 10px 25px var(--shadow-color) !important;
   }
 
   .mobile-nav-list {

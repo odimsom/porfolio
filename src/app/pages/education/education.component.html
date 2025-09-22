@@ -1,13 +1,17 @@
 <div class="max-w-7xl mx-auto px-6">
   <!-- Education Section -->
   <div class="mb-20">
-    <h2 class="text-4xl font-bold text-white text-center mb-4">
-      <span class="text-blue-400">Educación</span>
+    <h2
+      class="text-4xl font-bold text-center mb-4"
+      style="color: var(--accent-color)"
+    >
+      {{ translationService.translate("education.title") }}
     </h2>
-    <p class="text-gray-300 text-lg text-center mb-16 max-w-3xl mx-auto">
-      Tengo una sólida formación educativa en ingeniería de sistemas y
-      programación. Siempre estoy buscando nuevas oportunidades para aprender y
-      crecer.
+    <p
+      class="text-lg text-center mb-16 max-w-3xl mx-auto"
+      style="color: var(--secondary-text)"
+    >
+      {{ translationService.translate("education.subtitle") }}
     </p>
 
     <!-- Timeline -->
@@ -39,18 +43,27 @@
             [class.md:pl-12]="i % 2 === 0"
           >
             <div
-              class="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 group"
+              class="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+              style="
+                background: var(--card-bg);
+                border-color: var(--card-border);
+              "
             >
               <!-- Header -->
               <div class="flex items-start justify-between mb-4">
                 <div class="flex-1">
                   <h3
-                    class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300"
+                    class="text-xl font-bold group-hover:transition-colors duration-300"
+                    style="color: var(--primary-text)"
                   >
-                    {{ item.title }}
+                    {{ translationService.translate(item.titleKey) }}
                   </h3>
-                  <p class="text-blue-400 font-medium">{{ item.subtitle }}</p>
-                  <p class="text-gray-300 text-sm">{{ item.institution }}</p>
+                  <p style="color: var(--accent-color)" class="font-medium">
+                    {{ translationService.translate(item.subtitleKey) }}
+                  </p>
+                  <p class="text-sm" style="color: var(--secondary-text)">
+                    {{ translationService.translate(item.institutionKey) }}
+                  </p>
                 </div>
                 <span
                   class="px-3 py-1 text-xs font-medium rounded-full border"
@@ -61,13 +74,22 @@
                       item.status === 'completed'
                   }"
                 >
-                  {{ item.status === "current" ? "En curso" : "Completado" }}
+                  {{
+                    item.status === "current"
+                      ? translationService.translate("education.status.current")
+                      : translationService.translate(
+                          "education.status.completed"
+                        )
+                  }}
                 </span>
               </div>
 
               <!-- Period and Location -->
               <div class="flex flex-wrap gap-4 mb-4 text-sm">
-                <div class="flex items-center gap-2 text-gray-400">
+                <div
+                  class="flex items-center gap-2"
+                  style="color: var(--secondary-text)"
+                >
                   <svg
                     class="w-4 h-4"
                     fill="none"
@@ -81,9 +103,12 @@
                       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                     />
                   </svg>
-                  {{ item.period }}
+                  {{ translationService.translate(item.periodKey) }}
                 </div>
-                <div class="flex items-center gap-2 text-gray-400">
+                <div
+                  class="flex items-center gap-2"
+                  style="color: var(--secondary-text)"
+                >
                   <svg
                     class="w-4 h-4"
                     fill="none"
@@ -103,13 +128,16 @@
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  {{ item.location }}
+                  {{ translationService.translate(item.locationKey) }}
                 </div>
               </div>
 
               <!-- Description -->
-              <p class="text-gray-300 text-sm leading-relaxed">
-                {{ item.description }}
+              <p
+                class="text-sm leading-relaxed"
+                style="color: var(--secondary-text)"
+              >
+                {{ translationService.translate(item.descriptionKey) }}
               </p>
             </div>
           </div>
@@ -120,25 +148,36 @@
 
   <!-- Certificates Section -->
   <div>
-    <h2 class="text-4xl font-bold text-white text-center mb-4">
-      <span class="text-blue-400">Certificados</span>
+    <h2
+      class="text-4xl font-bold text-center mb-4"
+      style="color: var(--accent-color)"
+    >
+      {{ translationService.translate("certificates.title") }}
     </h2>
-    <p class="text-gray-300 text-lg text-center mb-16 max-w-3xl mx-auto">
-      He obtenido varios certificados que demuestran mis habilidades y
-      conocimientos en programación y desarrollo de software. Siempre estoy
-      buscando nuevas oportunidades para aprender y crecer.
+    <p
+      class="text-lg text-center mb-16 max-w-3xl mx-auto"
+      style="color: var(--secondary-text)"
+    >
+      {{ translationService.translate("certificates.subtitle") }}
     </p>
 
     <!-- ITLA Certificates -->
     <div class="mb-12">
-      <h3 class="text-2xl font-bold text-white mb-8 text-center">
-        Educación Continua <span class="text-purple-400">ITLA</span>
+      <h3
+        class="text-2xl font-bold mb-8 text-center"
+        style="color: var(--primary-text)"
+      >
+        {{ translationService.translate("certificates.itla") }}
+        <span class="text-purple-500">{{
+          translationService.translate("certificates.itla.name")
+        }}</span>
       </h3>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
           *ngFor="let cert of getITLACertificates()"
-          class="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/10 group"
+          class="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+          style="background: var(--card-bg); border-color: var(--card-border)"
         >
           <!-- Header -->
           <div class="flex items-start gap-4 mb-4">
@@ -159,16 +198,22 @@
 
             <div class="flex-1">
               <h4
-                class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors duration-300"
+                class="text-lg font-bold group-hover:text-purple-400 transition-colors duration-300"
+                style="color: var(--primary-text)"
               >
-                {{ cert.title }}
+                {{ translationService.translate(cert.titleKey) }}
               </h4>
-              <p class="text-purple-400 font-medium">{{ cert.issuer }}</p>
+              <p class="text-purple-400 font-medium">
+                {{ translationService.translate(cert.issuerKey) }}
+              </p>
             </div>
           </div>
 
           <!-- Date -->
-          <div class="flex items-center gap-2 text-gray-400 text-sm mb-4">
+          <div
+            class="flex items-center gap-2 text-sm mb-4"
+            style="color: var(--secondary-text)"
+          >
             <svg
               class="w-4 h-4"
               fill="none"
@@ -182,7 +227,7 @@
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            {{ cert.date }}
+            {{ translationService.translate(cert.dateKey) }}
           </div>
 
           <!-- Skills -->
@@ -201,9 +246,9 @@
           <div
             class="w-full px-4 py-2 bg-purple-600/20 border border-purple-500/30 rounded-lg text-center"
           >
-            <span class="text-purple-400 text-sm font-medium"
-              >Certificado ITLA</span
-            >
+            <span class="text-purple-400 text-sm font-medium">{{
+              translationService.translate("certificates.itla.status")
+            }}</span>
           </div>
         </div>
       </div>
@@ -211,14 +256,18 @@
 
     <!-- Udemy Certificates -->
     <div>
-      <h3 class="text-2xl font-bold text-white mb-8 text-center">
-        Cursos <span class="text-orange-400">Udemy</span>
+      <h3
+        class="text-2xl font-bold mb-8 text-center"
+        style="color: var(--primary-text)"
+      >
+        {{ translationService.translate("certificates.udemy") }}
       </h3>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div
           *ngFor="let cert of getUdemyCertificates()"
-          class="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30 hover:border-orange-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/10 group"
+          class="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+          style="background: var(--card-bg); border-color: var(--card-border)"
         >
           <!-- Header -->
           <div class="flex items-start gap-4 mb-4">
@@ -254,16 +303,22 @@
 
             <div class="flex-1">
               <h4
-                class="text-lg font-bold text-white group-hover:text-orange-400 transition-colors duration-300"
+                class="text-lg font-bold group-hover:text-orange-400 transition-colors duration-300"
+                style="color: var(--primary-text)"
               >
-                {{ cert.title }}
+                {{ translationService.translate(cert.titleKey) }}
               </h4>
-              <p class="text-orange-400 font-medium">{{ cert.issuer }}</p>
+              <p class="text-orange-400 font-medium">
+                {{ translationService.translate(cert.issuerKey) }}
+              </p>
             </div>
           </div>
 
           <!-- Date -->
-          <div class="flex items-center gap-2 text-gray-400 text-sm mb-4">
+          <div
+            class="flex items-center gap-2 text-sm mb-4"
+            style="color: var(--secondary-text)"
+          >
             <svg
               class="w-4 h-4"
               fill="none"
@@ -277,7 +332,7 @@
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            {{ cert.date }}
+            {{ translationService.translate(cert.dateKey) }}
           </div>
 
           <!-- Skills -->
@@ -302,9 +357,9 @@
           <div
             class="w-full px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-lg text-center"
           >
-            <span class="text-orange-400 text-sm font-medium"
-              >Curso Online</span
-            >
+            <span class="text-orange-400 text-sm font-medium">{{
+              translationService.translate("certificates.udemy.status")
+            }}</span>
           </div>
         </div>
       </div>

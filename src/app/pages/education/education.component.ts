@@ -1,21 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 
 interface EducationItem {
-  title: string;
-  subtitle: string;
-  institution: string;
-  period: string;
-  location: string;
-  description: string;
+  titleKey: string;
+  subtitleKey: string;
+  institutionKey: string;
+  periodKey: string;
+  locationKey: string;
+  descriptionKey: string;
   type: 'degree' | 'certification' | 'course';
   status: 'completed' | 'current';
 }
 
 interface Certificate {
-  title: string;
-  issuer: string;
-  date: string;
+  titleKey: string;
+  issuerKey: string;
+  dateKey: string;
   skills: string[];
   credentialUrl?: string;
   icon: string;
@@ -29,15 +30,16 @@ interface Certificate {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationComponent {
+  translationService = inject(TranslationService);
+
   educationItems: EducationItem[] = [
     {
-      title: 'Tecnología en Desarrollo de Software',
-      subtitle: 'Carrera Técnica',
-      institution: 'Instituto Tecnológico de las Américas (ITLA)',
-      period: '2023 - Actualmente Cursando',
-      location: 'República Dominicana',
-      description:
-        'Formación integral en desarrollo de software, programación, bases de datos, arquitectura de sistemas y metodologías ágiles.',
+      titleKey: 'education.degree.title',
+      subtitleKey: 'education.degree.subtitle',
+      institutionKey: 'education.degree.institution',
+      periodKey: 'education.degree.period',
+      locationKey: 'education.degree.location',
+      descriptionKey: 'education.degree.description',
       type: 'degree',
       status: 'current',
     },
@@ -45,37 +47,37 @@ export class EducationComponent {
 
   certificates: Certificate[] = [
     {
-      title: 'Curso C# Básico',
-      issuer: 'ITLA - Educación Continua',
-      date: 'Enero - Marzo 2025',
+      titleKey: 'certificates.csharpBasic.title',
+      issuerKey: 'certificates.itla.issuer',
+      dateKey: 'certificates.csharpBasic.date',
       skills: ['C#', 'Programación', 'OOP', 'Fundamentos'],
       icon: 'csharp',
     },
     {
-      title: 'Curso C# Intermedio',
-      issuer: 'ITLA - Educación Continua',
-      date: 'Abril - Junio 2025',
+      titleKey: 'certificates.csharpIntermediate.title',
+      issuerKey: 'certificates.itla.issuer',
+      dateKey: 'certificates.csharpIntermediate.date',
       skills: ['C#', 'Entity Framework', 'APIs', 'Bases de Datos'],
       icon: 'csharp',
     },
     {
-      title: 'Curso C# Avanzado',
-      issuer: 'ITLA - Educación Continua',
-      date: 'Julio - Actualmente cursando',
+      titleKey: 'certificates.csharpAdvanced.title',
+      issuerKey: 'certificates.itla.issuer',
+      dateKey: 'certificates.csharpAdvanced.date',
       skills: ['C#', 'Arquitectura', 'Patrones', 'Clean Code'],
       icon: 'csharp',
     },
     {
-      title: 'Angular de Cero a Experto (Angular 19+)',
-      issuer: 'Udemy',
-      date: 'Abril - Actualmente Cursando',
+      titleKey: 'certificates.angular.title',
+      issuerKey: 'certificates.udemy.issuer',
+      dateKey: 'certificates.angular.date',
       skills: ['Angular', 'TypeScript', 'RxJS', 'Componentes'],
       icon: 'angular',
     },
     {
-      title: 'Python Básico desde 0',
-      issuer: 'Udemy',
-      date: '4 abril - 10 abril 2025',
+      titleKey: 'certificates.python.title',
+      issuerKey: 'certificates.udemy.issuer',
+      dateKey: 'certificates.python.date',
       skills: ['Python', 'Programación', 'Sintaxis', 'Fundamentos'],
       icon: 'python',
     },
@@ -83,11 +85,13 @@ export class EducationComponent {
 
   getITLACertificates(): Certificate[] {
     return this.certificates.filter(
-      (cert) => cert.issuer === 'ITLA - Educación Continua'
+      (cert) => cert.issuerKey === 'certificates.itla.issuer'
     );
   }
 
   getUdemyCertificates(): Certificate[] {
-    return this.certificates.filter((cert) => cert.issuer === 'Udemy');
+    return this.certificates.filter(
+      (cert) => cert.issuerKey === 'certificates.udemy.issuer'
+    );
   }
 }

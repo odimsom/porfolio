@@ -1,20 +1,28 @@
 <div class="max-w-7xl mx-auto px-6">
-  <h2 class="text-4xl font-bold text-white text-center mb-12">
-    Habilidades <span class="text-blue-400">Técnicas</span>
+  <h2
+    class="text-4xl font-bold text-center mb-12"
+    style="color: var(--primary-text)"
+  >
+    {{ translationService.translate("skills.title").split(" ")[0] }}
+    <span style="color: var(--accent-color)">{{
+      translationService.translate("skills.title").split(" ")[1]
+    }}</span>
   </h2>
 
   <!-- Skills Grid with Staggered Layout -->
   <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
     <div
       *ngFor="let category of skillCategories"
-      class="bg-gray-800/30 rounded-xl p-4 border border-gray-700/30 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 break-inside-avoid mb-4"
+      class="rounded-xl p-4 border hover:scale-105 transition-all duration-300 hover:shadow-lg break-inside-avoid mb-4"
+      style="background: var(--glass-bg); border-color: var(--border-color)"
     >
       <!-- Category Header -->
       <div class="flex items-center mb-3">
         <!-- Frontend Icon -->
         <svg
           *ngIf="category.icon === 'frontend'"
-          class="w-5 h-5 text-blue-400 mr-2"
+          class="w-5 h-5 mr-2"
+          style="color: var(--accent-color)"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -69,7 +77,9 @@
           />
         </svg>
 
-        <h3 class="text-base font-semibold text-white">{{ category.title }}</h3>
+        <h3 class="text-base font-semibold" style="color: var(--primary-text)">
+          {{ translationService.translate(category.titleKey) }}
+        </h3>
       </div>
 
       <!-- Skills List - All Skills Shown -->
@@ -313,8 +323,11 @@
 
   <!-- Soft Skills Section -->
   <div class="mt-16 text-center">
-    <h3 class="text-2xl font-bold text-white mb-8">
-      Aptitudes <span class="text-blue-400">Profesionales</span>
+    <h3 class="text-2xl font-bold mb-8" style="color: var(--primary-text)">
+      {{ translationService.translate("skills.professional").split(" ")[0] }}
+      <span style="color: var(--accent-color)">{{
+        translationService.translate("skills.professional").split(" ")[1]
+      }}</span>
     </h3>
 
     <div
@@ -336,7 +349,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-blue-200 transition-colors duration-300"
-            >Liderazgo</span
+            >{{ translationService.translate("skills.leadership") }}</span
           >
         </div>
       </div>
@@ -357,7 +370,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-green-200 transition-colors duration-300"
-            >Compromiso</span
+            >{{ translationService.translate("skills.commitment") }}</span
           >
         </div>
       </div>
@@ -378,7 +391,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-orange-200 transition-colors duration-300"
-            >Resolución de Problemas</span
+            >{{ translationService.translate("skills.problemSolving") }}</span
           >
         </div>
       </div>
@@ -399,7 +412,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-purple-200 transition-colors duration-300"
-            >Trabajo en Equipo</span
+            >{{ translationService.translate("skills.teamwork") }}</span
           >
         </div>
       </div>
@@ -420,7 +433,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-cyan-200 transition-colors duration-300"
-            >Adaptabilidad</span
+            >{{ translationService.translate("skills.adaptability") }}</span
           >
         </div>
       </div>
@@ -441,7 +454,7 @@
           </svg>
           <span
             class="text-white font-medium text-sm group-hover:text-yellow-200 transition-colors duration-300"
-            >Innovación</span
+            >{{ translationService.translate("skills.innovation") }}</span
           >
         </div>
       </div>

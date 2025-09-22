@@ -12,7 +12,7 @@
               : 'text-gray-400 hover:text-gray-300 hover:bg-gray-500/20'
           "
           class="flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ease-in-out hover:scale-105 group relative cursor-pointer mobile-nav-button"
-          [title]="item.name"
+          [title]="getNavItemName(item.nameKey)"
         >
           <!-- Home Icon -->
           <svg
@@ -106,9 +106,9 @@
 
           <!-- Tooltip -->
           <span
-            class="absolute left-16 bg-white/90 text-black text-sm px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 mobile-tooltip"
+            class="absolute right-16 bg-white/90 text-black text-sm px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 mobile-tooltip"
           >
-            {{ item.name }}
+            {{ getNavItemName(item.nameKey) }}
           </span>
         </a>
       </li>
