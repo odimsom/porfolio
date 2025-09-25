@@ -101,7 +101,8 @@
             <!-- TypeScript Icon -->
             <svg
               *ngIf="skill.name === 'TypeScript'"
-              class="w-5 h-5 text-blue-500"
+              class="w-5 h-5"
+              [class]="getSkillColor('text-blue-500')"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -134,7 +135,8 @@
             <!-- CSS3 Icon -->
             <svg
               *ngIf="skill.name === 'CSS3'"
-              class="w-5 h-5 text-blue-400"
+              class="w-5 h-5"
+              [class]="getSkillColor('text-blue-400')"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -211,7 +213,8 @@
             <!-- Azure Icon -->
             <svg
               *ngIf="skill.name === 'Azure'"
-              class="w-5 h-5 text-blue-600"
+              class="w-5 h-5"
+              [class]="getSkillColor('text-blue-600')"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -254,7 +257,8 @@
             <!-- MySQL Icon -->
             <svg
               *ngIf="skill.name === 'MySQL'"
-              class="w-5 h-5 text-blue-500"
+              class="w-5 h-5"
+              [class]="getSkillColor('text-blue-500')"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -265,7 +269,8 @@
             <!-- Flutter Icon -->
             <svg
               *ngIf="skill.name === 'Dart/Flutter'"
-              class="w-5 h-5 text-blue-600"
+              class="w-5 h-5"
+              [class]="getSkillColor('text-blue-600')"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -335,11 +340,17 @@
     >
       <!-- Liderazgo -->
       <div
-        class="bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-xl p-4 border border-blue-500/30 hover:border-blue-400 hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group"
+        class="bg-gradient-to-br rounded-xl p-4 border hover:scale-105 transition-all duration-300 hover:shadow-lg group"
+        [class]="
+          themeService.isDark()
+            ? 'from-blue-500/20 to-purple-600/20 border-blue-500/30 hover:border-blue-400 hover:shadow-blue-500/25'
+            : 'from-red-800/20 to-purple-600/20 border-red-800/30 hover:border-red-700 hover:shadow-red-800/25'
+        "
       >
         <div class="flex flex-col items-center space-y-2">
           <svg
-            class="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-colors duration-300"
+            [class]="getIconColor('frontend')"
+            [ngStyle]="getIconStyles('frontend')"
             fill="currentColor"
             viewBox="0 0 24 24"
           >

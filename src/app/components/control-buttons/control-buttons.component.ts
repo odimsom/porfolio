@@ -1,4 +1,4 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../services/theme.service';
 import { TranslationService } from '../../services/translation.service';
@@ -7,21 +7,21 @@ import { TranslationService } from '../../services/translation.service';
   selector: 'app-control-buttons',
   standalone: true,
   imports: [CommonModule],
+  encapsulation: ViewEncapsulation.None,
   template: `
     <div class="control-buttons">
       <!-- Botón de tema -->
       <button
         (click)="toggleTheme()"
         [title]="themeButtonTitle()"
-        class="control-btn theme-btn"
-        [class.active]="themeService.isLight()"
+        [ngStyle]="getThemeButtonStyles()"
       >
         <!-- Sol (tema claro activo) -->
         <svg
           *ngIf="themeService.isLight()"
           class="control-icon"
-          fill="currentColor"
           viewBox="0 0 24 24"
+          [style.fill]="getIconColor()"
         >
           <path
             d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"
@@ -32,8 +32,8 @@ import { TranslationService } from '../../services/translation.service';
         <svg
           *ngIf="themeService.isDark()"
           class="control-icon"
-          fill="currentColor"
           viewBox="0 0 24 24"
+          [style.fill]="getIconColor()"
         >
           <path
             fill-rule="evenodd"
@@ -48,7 +48,8 @@ import { TranslationService } from '../../services/translation.service';
         (click)="toggleLanguage()"
         [title]="languageButtonTitle()"
         class="control-btn language-btn"
-        [class.active]="translationService.isEnglish()"
+        [class.active]="true"
+        [ngStyle]="getLanguageButtonStyles()"
       >
         <!-- Bandera España (español activo) -->
         <div *ngIf="translationService.isSpanish()" class="flag-icon es-flag">
@@ -90,5 +91,78 @@ export class ControlButtonsComponent {
 
   toggleLanguage(): void {
     this.translationService.toggleLanguage();
+  }
+
+  // Métodos para estilos dinámicos
+  getThemeButtonStyles(): any {
+    const baseStyles = {
+      width: '2.5rem',
+      height: '2.5rem',
+      'border-radius': '0.75rem',
+      border: '1px solid',
+      'backdrop-filter': 'blur(10px)',
+      display: 'flex',
+      'align-items': 'center',
+      'justify-content': 'center',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      position: 'relative',
+      overflow: 'hidden',
+    };
+
+    if (this.themeService.isLight()) {
+      // En tema claro, el botón de sol está activo y debe ser #8a0808
+      return {
+        ...baseStyles,
+        background: 'rgba(138, 8, 8, 0.2) !important',
+        'border-color': 'rgba(138, 8, 8, 0.4) !important',
+        color: '#8a0808 !important',
+      };
+    } else {
+      // En tema oscuro, el botón de luna está activo y debe ser azul
+      return {
+        ...baseStyles,
+        background: 'rgba(59, 130, 246, 0.2) !important',
+        'border-color': 'rgba(59, 130, 246, 0.4) !important',
+        color: '#3b82f6 !important',
+      };
+    }
+  }
+
+  getLanguageButtonStyles(): any {
+    const baseStyles = {
+      width: '2.5rem',
+      height: '2.5rem',
+      'border-radius': '0.75rem',
+      border: '1px solid',
+      'backdrop-filter': 'blur(10px)',
+      display: 'flex',
+      'align-items': 'center',
+      'justify-content': 'center',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      position: 'relative',
+      overflow: 'hidden',
+    };
+
+    // El botón de idioma siempre debe mostrar color activo según el tema actual
+    return this.themeService.isDark()
+      ? {
+          ...baseStyles,
+          background: 'rgba(59, 130, 246, 0.2) !important',
+          'border-color': 'rgba(59, 130, 246, 0.4) !important',
+          color: '#3b82f6 !important',
+        }
+      : {
+          ...baseStyles,
+          background: 'rgba(138, 8, 8, 0.2) !important',
+          'border-color': 'rgba(138, 8, 8, 0.4) !important',
+          color: '#8a0808 !important',
+        };
+  }
+
+  // Método específico para obtener el color del icono
+  getIconColor(): string {
+    return this.themeService.isDark() ? '#3b82f6' : '#8a0808';
   }
 }

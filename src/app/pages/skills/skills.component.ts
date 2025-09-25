@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
+import { ThemeService } from '../../services/theme.service';
 
 interface SkillCategory {
   titleKey: string;
@@ -22,6 +23,7 @@ interface Skill {
 })
 export class SkillsComponent {
   translationService = inject(TranslationService);
+  themeService = inject(ThemeService);
 
   skillCategories: SkillCategory[] = [
     {
@@ -89,4 +91,77 @@ export class SkillsComponent {
       ],
     },
   ];
+
+  // Métodos para colores dinámicos basados en tema
+  getSkillColor(originalColor: string): string {
+    if (this.themeService.isDark()) {
+      return originalColor;
+    }
+
+    // En tema claro, cambiar colores azules por #8a0808
+    if (originalColor.includes('text-blue')) {
+      return 'text-[#8a0808]';
+    }
+
+    return originalColor;
+  }
+
+  getIconColor(iconType: string): string {
+    const baseClasses = 'transition-colors duration-300';
+
+    if (this.themeService.isDark()) {
+      // Colores originales para tema oscuro
+      switch (iconType) {
+        case 'frontend':
+          return `w-8 h-8 text-blue-400 group-hover:text-blue-300 ${baseClasses}`;
+        case 'backend':
+          return `w-8 h-8 text-green-400 group-hover:text-green-300 ${baseClasses}`;
+        case 'devops':
+          return `w-8 h-8 text-purple-400 group-hover:text-purple-300 ${baseClasses}`;
+        case 'database':
+          return `w-8 h-8 text-yellow-400 group-hover:text-yellow-300 ${baseClasses}`;
+        case 'architecture':
+          return `w-8 h-8 text-pink-400 group-hover:text-pink-300 ${baseClasses}`;
+        default:
+          return `w-8 h-8 text-blue-400 group-hover:text-blue-300 ${baseClasses}`;
+      }
+    } else {
+      // Colores personalizados para tema claro
+      switch (iconType) {
+        case 'frontend':
+          return `w-8 h-8 ${baseClasses}`;
+        case 'backend':
+          return `w-8 h-8 text-green-400 group-hover:text-green-300 ${baseClasses}`;
+        case 'devops':
+          return `w-8 h-8 text-purple-400 group-hover:text-purple-300 ${baseClasses}`;
+        case 'database':
+          return `w-8 h-8 text-yellow-400 group-hover:text-yellow-300 ${baseClasses}`;
+        case 'architecture':
+          return `w-8 h-8 text-pink-400 group-hover:text-pink-300 ${baseClasses}`;
+        default:
+          return `w-8 h-8 ${baseClasses}`;
+      }
+    }
+  }
+
+  getIconStyles(iconType: string): any {
+    if (this.themeService.isDark()) {
+      return null;
+    }
+
+    // En tema claro, usar #8a0808 para iconos que originalmente eran azules
+    if (iconType === 'frontend' || iconType === 'default') {
+      return { color: '#8a0808' };
+    }
+
+    return null;
+  }
+
+  getCategoryTitleColor(): string {
+    return 'text-white font-medium text-sm group-hover:transition-colors duration-300';
+  }
+
+  getCategoryTitleStyles(): any {
+    return this.themeService.isDark() ? { color: 'white' } : { color: 'white' };
+  }
 }

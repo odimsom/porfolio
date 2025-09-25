@@ -82,7 +82,7 @@
           rel="noopener noreferrer"
           download="FranciscoCastro-SystemsEngineer-CV.pdf"
           class="transition-all duration-300 hover:scale-110 hover:underline underline-offset-4 font-medium"
-          style="color: var(--accent-color)"
+          [ngStyle]="getDownloadStyles()"
         >
           {{ translationService.translate("profile.downloadCv") }}
         </a>

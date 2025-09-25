@@ -8,6 +8,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { TranslationService } from '../../services/translation.service';
+import { ThemeService } from '../../services/theme.service';
 
 interface ContactForm {
   name: string;
@@ -25,6 +26,7 @@ interface ContactForm {
 })
 export class ContactComponent {
   translationService = inject(TranslationService);
+  themeService = inject(ThemeService);
 
   contactForm: ContactForm = {
     name: '',
@@ -137,5 +139,85 @@ export class ContactComponent {
     this.submitted = false;
     this.submitError = false;
     this.cdr.detectChanges(); // Force update when resetting state
+  }
+
+  // Métodos para colores dinámicos basados en tema
+  getContactIconClasses(): string {
+    return 'w-12 h-12 rounded-lg flex items-center justify-center border';
+  }
+
+  getContactIconStyles(): any {
+    return this.themeService.isDark()
+      ? {
+          backgroundColor: 'rgba(59, 130, 246, 0.2)',
+          borderColor: 'rgba(59, 130, 246, 0.3)',
+        }
+      : {
+          backgroundColor: 'rgba(138, 8, 8, 0.2)',
+          borderColor: 'rgba(138, 8, 8, 0.3)',
+        };
+  }
+
+  getSendButtonClasses(): string {
+    return this.themeService.isDark()
+      ? 'px-8 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-all duration-200 hover:scale-105 disabled:hover:scale-100 flex items-center gap-2'
+      : 'px-8 py-3 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-all duration-200 hover:scale-105 disabled:hover:scale-100 flex items-center gap-2';
+  }
+
+  getSendButtonStyles(): any {
+    return this.themeService.isDark()
+      ? null
+      : {
+          backgroundColor: '#8a0808',
+          '&:hover': { backgroundColor: '#6d0606' },
+        };
+  }
+
+  getCallNowButtonClasses(): string {
+    return this.themeService.isDark()
+      ? 'px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 hover:scale-105 flex items-center gap-2'
+      : 'px-6 py-3 text-white font-medium rounded-lg transition-all duration-200 hover:scale-105 flex items-center gap-2';
+  }
+
+  getCallNowButtonStyles(): any {
+    return this.themeService.isDark()
+      ? null
+      : {
+          backgroundColor: '#8a0808',
+          '&:hover': { backgroundColor: '#6d0606' },
+        };
+  }
+
+  getWhatsAppButtonClasses(): string {
+    return 'px-6 py-3 bg-transparent border font-medium rounded-lg transition-all duration-200 hover:scale-105 flex items-center gap-2';
+  }
+
+  getWhatsAppButtonStyles(): any {
+    return this.themeService.isDark()
+      ? {
+          borderColor: '#3b82f6',
+          color: '#60a5fa',
+        }
+      : {
+          borderColor: '#8a0808',
+          color: '#8a0808',
+          '&:hover': { backgroundColor: 'rgba(138, 8, 8, 0.1)' },
+        };
+  }
+
+  getSocialIconClasses(): string {
+    return 'w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110';
+  }
+
+  getSocialIconStyles(): any {
+    return this.themeService.isDark()
+      ? {
+          backgroundColor: 'rgba(59, 130, 246, 0.2)',
+          '&:hover': { backgroundColor: 'rgba(59, 130, 246, 0.3)' },
+        }
+      : {
+          backgroundColor: 'rgba(138, 8, 8, 0.2)',
+          '&:hover': { backgroundColor: 'rgba(138, 8, 8, 0.3)' },
+        };
   }
 }

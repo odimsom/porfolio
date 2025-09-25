@@ -8,11 +8,12 @@ import {
   computed,
 } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
+import { ThemeService } from '../../services/theme.service';
 
 interface NavigationItem {
   icon: string;
   href: string;
-  nameKey: string; // Cambiamos name por nameKey para usar las claves de traducción
+  nameKey: string;
 }
 
 @Component({
@@ -35,7 +36,8 @@ export class NavigationLayoutComponent implements OnInit, OnDestroy {
 
   constructor(
     private cdr: ChangeDetectorRef,
-    public translationService: TranslationService
+    public translationService: TranslationService,
+    public themeService: ThemeService
   ) {}
 
   ngOnInit() {
@@ -84,5 +86,25 @@ export class NavigationLayoutComponent implements OnInit, OnDestroy {
 
   getNavItemName(nameKey: string): string {
     return this.translationService.translate(nameKey);
+  }
+
+  getActiveClasses(): string {
+    return this.themeService.isDark() ? 'bg-white scale-110' : 'scale-110';
+  }
+
+  getInactiveClasses(): string {
+    return this.themeService.isDark() ? 'hover:scale-105' : 'hover:scale-105';
+  }
+
+  getIconColor(isActive: boolean): string {
+    if (isActive) {
+      return this.themeService.isDark() ? '#3b82f6' : '#8a0808'; // Tema oscuro: azul, Tema claro: #8a0808
+    } else {
+      return this.themeService.isDark() ? '#d1d5db' : '#6b7280'; // Tema oscuro: gris claro, Tema claro: gris medio
+    }
+  }
+
+  getHoverIconColor(): string {
+    return this.themeService.isDark() ? '#ffffff' : '#374151'; // Tema oscuro: blanco, Tema claro: gris oscuro
   }
 }

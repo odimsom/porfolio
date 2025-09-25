@@ -45,11 +45,11 @@
   --secondary-bg: rgba(248, 250, 252, 0.95);
   --primary-text: #1f2937;
   --secondary-text: #374151;
-  --accent-color: #1d4ed8;
-  --accent-hover: #1e40af;
+  --accent-color: #8a0808;
+  --accent-hover: #6d0606;
   --border-color: rgba(0, 0, 0, 0.2);
-  --particle-color: #000000;
-  --particle-links: #000000;
+  --particle-color: #8a0808;
+  --particle-links: #8a0808;
   --glass-bg: rgba(0, 0, 0, 0.08);
   --glass-border: rgba(0, 0, 0, 0.15);
   --shadow-color: rgba(0, 0, 0, 0.2);

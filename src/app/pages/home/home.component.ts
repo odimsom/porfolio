@@ -12,6 +12,7 @@ import { ProjectsComponent } from '../projects/projects.component';
 import { EducationComponent } from '../education/education.component';
 import { ContactComponent } from '../contact/contact.component';
 import { TranslationService } from '../../services/translation.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-home',
@@ -33,4 +34,11 @@ import { TranslationService } from '../../services/translation.service';
 })
 export class HomeComponent {
   translationService = inject(TranslationService);
+  themeService = inject(ThemeService);
+
+  getDownloadStyles(): any {
+    return this.themeService.isDark()
+      ? { color: 'var(--accent-color)' }
+      : { color: '#8a0808' };
+  }
 }

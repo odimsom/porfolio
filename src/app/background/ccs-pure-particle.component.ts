@@ -25,7 +25,7 @@ export class ParticleComponent implements OnInit, OnDestroy {
 
   get particlesOptions() {
     const isDark = this.themeService.isDark();
-    const particleColor = isDark ? '#3b82f6' : '#1f2937';
+    const particleColor = isDark ? '#3b82f6' : '#8a0808';
 
     return {
       background: {

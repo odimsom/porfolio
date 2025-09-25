@@ -7,9 +7,7 @@
         <a
           (click)="scrollToSection(item.href)"
           [class]="
-            isActive(item.href)
-              ? 'bg-white text-blue-500 scale-110'
-              : 'text-gray-400 hover:text-gray-300 hover:bg-gray-500/20'
+            isActive(item.href) ? getActiveClasses() : getInactiveClasses()
           "
           class="flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ease-in-out hover:scale-105 group relative cursor-pointer mobile-nav-button"
           [title]="getNavItemName(item.nameKey)"
@@ -17,9 +15,10 @@
           <!-- Home Icon -->
           <svg
             *ngIf="item.icon === 'home'"
-            class="w-5 h-5 md:w-6 md:h-6"
+            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
             fill="currentColor"
             viewBox="0 0 24 24"
+            [style.color]="getIconColor(isActive(item.href))"
           >
             <path
               d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
@@ -32,9 +31,10 @@
           <!-- Skills Icon -->
           <svg
             *ngIf="item.icon === 'cog'"
-            class="w-5 h-5 md:w-6 md:h-6"
+            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
             fill="currentColor"
             viewBox="0 0 512 512"
+            [style.color]="getIconColor(isActive(item.href))"
           >
             <path
               d="M119.1 25v.1c-25 3.2-47.1 32-47.1 68.8c0 20.4 7.1 38.4 17.5 50.9L99.7 157L84 159.9c-13.7 2.6-23.8 9.9-32.2 21.5c-8.5 11.5-14.9 27.5-19.4 45.8c-8.2 33.6-9.9 74.7-10.1 110.5h44l11.9 158.4h96.3L185 337.7h41.9c0-36.2-.3-77.8-7.8-111.7c-4-18.5-10.2-34.4-18.7-45.9c-8.6-11.4-19.2-18.7-34.5-21l-16-2.5L160 144c10-12.5 16.7-30.2 16.7-50.1c0-39.2-24.8-68.8-52.4-68.8c-2.9 0-4.7-.1-5.2-.1M440 33c-17.2 0-31 13.77-31 31s13.8 31 31 31s31-13.77 31-31s-13.8-31-31-31M311 55v48H208v18h103v158h-55v18h55v110H208v18h103v32h80.8c-.5-2.9-.8-5.9-.8-9s.3-6.1.8-9H329V297h62.8c-.5-2.9-.8-5.9-.8-9s.3-6.1.8-9H329V73h62.8c-.5-2.92-.8-5.93-.8-9s.3-6.08.8-9zm129 202c-17.2 0-31 13.8-31 31s13.8 31 31 31s31-13.8 31-31s-13.8-31-31-31m0 160c-17.2 0-31 13.8-31 31s13.8 31 31 31s31-13.8 31-31s-13.8-31-31-31"
@@ -44,9 +44,10 @@
           <!-- Projects Icon -->
           <svg
             *ngIf="item.icon === 'code'"
-            class="w-5 h-5 md:w-6 md:h-6"
+            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
             fill="currentColor"
             viewBox="0 0 32 32"
+            [style.color]="getIconColor(isActive(item.href))"
           >
             <path
               d="M9 21H3c-1.103 0-2-.897-2-2v-6c0-1.103.897-2 2-2h6c1.103 0 2 .897 2 2v6c0 1.103-.897 2-2 2m-6-8v6h6v-6zm8.693 16.325A14.05 14.05 0 0 1 4.2 23.539l1.685-1.078a12.04 12.04 0 0 0 6.421 4.96z"
@@ -60,9 +61,10 @@
           <!-- Education Icon -->
           <svg
             *ngIf="item.icon === 'graduation-cap'"
-            class="w-5 h-5 md:w-6 md:h-6"
+            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
             fill="currentColor"
             viewBox="0 0 24 24"
+            [style.color]="getIconColor(isActive(item.href))"
           >
             <path
               d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z"
@@ -78,9 +80,10 @@
           <!-- Certificates Icon -->
           <svg
             *ngIf="item.icon === 'award'"
-            class="w-5 h-5 md:w-6 md:h-6"
+            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
             fill="currentColor"
             viewBox="0 0 24 24"
+            [style.color]="getIconColor(isActive(item.href))"
           >
             <path
               fill-rule="evenodd"
@@ -92,9 +95,10 @@
           <!-- Contact Icon -->
           <svg
             *ngIf="item.icon === 'envelope'"
-            class="w-5 h-5 md:w-6 md:h-6"
+            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
             fill="currentColor"
             viewBox="0 0 24 24"
+            [style.color]="getIconColor(isActive(item.href))"
           >
             <path
               d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"

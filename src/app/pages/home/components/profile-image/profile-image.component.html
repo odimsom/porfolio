@@ -10,7 +10,8 @@
     href="https://drive.google.com/uc?export=download&id=1CU2IxVJE1bGq6x21eR4FwzV76CuX4Yj7"
     rel="noopener noreferrer"
     download="FranciscoCastro-SystemsEngineer-CV.pdf"
-    class="text-blue-500 hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:underline underline-offset-4 font-medium"
+    [class]="getDownloadClasses()"
+    [ngStyle]="getDownloadStyles()"
   >
     {{ translationService.translate("profile.downloadCv") }}
   </a>
