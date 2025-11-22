@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { SocialLink } from '../../interfaces';
+import { AnimateOnScrollDirective } from '../../../../directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-social-links',
   templateUrl: './social-links.component.html',
   styleUrls: ['./social-links.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, AnimateOnScrollDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SocialLinksComponent {

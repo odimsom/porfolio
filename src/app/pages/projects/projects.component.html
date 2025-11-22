@@ -2,13 +2,19 @@
   <h2
     class="text-4xl font-bold text-center mb-4"
     style="color: var(--primary-text)"
+    appAnimate="animate-fade-in-down"
   >
     {{ translationService.translate("projects.title").split(" ")[0] }}
     <span style="color: var(--accent-color)">{{
       translationService.translate("projects.title").split(" ")[1]
     }}</span>
   </h2>
-  <p class="text-lg text-center mb-12" style="color: var(--secondary-text)">
+  <p
+    class="text-lg text-center mb-12"
+    style="color: var(--secondary-text)"
+    appAnimate="animate-fade-in-up"
+    delay="200ms"
+  >
     {{ translationService.translate("projects.subtitle") }}
   </p>
 
@@ -17,6 +23,8 @@
     <h3
       class="text-2xl font-bold mb-8 text-center"
       style="color: var(--primary-text)"
+      appAnimate="animate-fade-in"
+      delay="300ms"
     >
       {{ translationService.translate("projects.featured").split(" ")[0] }}
       <span style="color: var(--accent-color)">{{
@@ -26,9 +34,11 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
       <div
-        *ngFor="let project of getFeaturedProjects()"
-        class="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+        *ngFor="let project of getFeaturedProjects(); let i = index"
+        class="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-lg group hover-glow"
         style="background: var(--card-bg); border-color: var(--card-border)"
+        appAnimate="animate-fade-in-up"
+        [delay]="i * 150 + 400 + 'ms'"
       >
         <!-- Project Header -->
         <div class="flex items-center justify-between mb-4">
@@ -101,7 +111,7 @@
             [href]="project.githubUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105"
+            class="flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 btn-press"
             style="
               background: var(--button-secondary-bg);
               border-color: var(--button-secondary-border);
@@ -121,7 +131,7 @@
             [href]="project.liveUrl"
             target="_blank"
             rel="noopener noreferrer"
-            [class]="getViewDemoButtonClasses()"
+            [class]="getViewDemoButtonClasses() + ' btn-press'"
             [ngStyle]="getViewDemoButtonStyles()"
           >
             <svg
@@ -175,6 +185,7 @@
     <h3
       class="text-2xl font-bold mb-8 text-center"
       style="color: var(--primary-text)"
+      appAnimate="animate-fade-in"
     >
       {{ translationService.translate("projects.other").split(" ")[0] }}
       <span style="color: var(--accent-color)">{{
@@ -184,9 +195,11 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div
-        *ngFor="let project of getOtherProjects()"
-        class="rounded-xl p-5 border transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+        *ngFor="let project of getOtherProjects(); let i = index"
+        class="rounded-xl p-5 border transition-all duration-300 hover:scale-105 hover:shadow-lg group hover-glow"
         style="background: var(--card-bg); border-color: var(--card-border)"
+        appAnimate="animate-fade-in-up"
+        [delay]="i * 100 + 'ms'"
       >
         <!-- Project Header -->
         <div class="flex items-center justify-between mb-3">
@@ -253,7 +266,7 @@
             [href]="project.githubUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105"
+            class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 btn-press"
             style="
               background: var(--button-secondary-bg);
               border-color: var(--button-secondary-border);
@@ -273,7 +286,7 @@
             [href]="project.liveUrl"
             target="_blank"
             rel="noopener noreferrer"
-            [class]="getViewDemoButtonSmallClasses()"
+            [class]="getViewDemoButtonSmallClasses() + ' btn-press'"
             [ngStyle]="getViewDemoButtonStyles()"
           >
             <svg

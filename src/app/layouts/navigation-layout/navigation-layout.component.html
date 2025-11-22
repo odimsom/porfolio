@@ -1,4 +1,4 @@
-<nav class="navigation-fixed">
+<nav class="navigation-fixed" appAnimate="animate-fade-in-up">
   <div
     class="backdrop-blur-sm rounded-full p-3 shadow-2xl border border-gray-400/30 mobile-nav-container"
   >
@@ -9,7 +9,7 @@
           [class]="
             isActive(item.href) ? getActiveClasses() : getInactiveClasses()
           "
-          class="flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ease-in-out hover:scale-105 group relative cursor-pointer mobile-nav-button"
+          class="flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ease-in-out hover:scale-105 group relative cursor-pointer mobile-nav-button hover-glow"
           [title]="getNavItemName(item.nameKey)"
         >
           <!-- Home Icon -->

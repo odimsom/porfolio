@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 interface ContactForm {
   name: string;
@@ -21,7 +22,7 @@ interface ContactForm {
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, AnimateOnScrollDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {
