@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 interface SkillCategory {
   titleKey: string;
@@ -18,7 +19,7 @@ interface Skill {
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, AnimateOnScrollDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent {

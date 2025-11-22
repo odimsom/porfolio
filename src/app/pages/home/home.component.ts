@@ -13,6 +13,7 @@ import { EducationComponent } from '../education/education.component';
 import { ContactComponent } from '../contact/contact.component';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-home',
@@ -29,6 +30,7 @@ import { ThemeService } from '../../services/theme.service';
     ProjectsComponent,
     EducationComponent,
     ContactComponent,
+    AnimateOnScrollDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

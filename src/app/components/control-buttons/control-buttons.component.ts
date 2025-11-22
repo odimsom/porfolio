@@ -2,19 +2,21 @@ import { Component, computed, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../services/theme.service';
 import { TranslationService } from '../../services/translation.service';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-control-buttons',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AnimateOnScrollDirective],
   encapsulation: ViewEncapsulation.None,
   template: `
-    <div class="control-buttons">
+    <div class="control-buttons" appAnimate="animate-fade-in-left">
       <!-- Botón de tema -->
       <button
         (click)="toggleTheme()"
         [title]="themeButtonTitle()"
         [ngStyle]="getThemeButtonStyles()"
+        class="hover-lift"
       >
         <!-- Sol (tema claro activo) -->
         <svg
@@ -47,7 +49,7 @@ import { TranslationService } from '../../services/translation.service';
       <button
         (click)="toggleLanguage()"
         [title]="languageButtonTitle()"
-        class="control-btn language-btn"
+        class="control-btn language-btn hover-lift"
         [class.active]="true"
         [ngStyle]="getLanguageButtonStyles()"
       >

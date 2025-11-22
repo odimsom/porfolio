@@ -2,7 +2,10 @@
 <section id="home" class="min-h-screen flex items-center justify-center p-8">
   <div class="max-w-6xl w-full">
     <!-- Mobile Layout: Vertical Stack -->
-    <div class="flex flex-col items-center space-y-8 lg:hidden">
+    <div
+      class="flex flex-col items-center space-y-8 lg:hidden"
+      appAnimate="animate-fade-in-up"
+    >
       <!-- Social Links - horizontal on mobile -->
       <div class="flex justify-center">
         <div class="flex flex-row space-x-4">
@@ -10,7 +13,7 @@
             href="https://www.linkedin.com/in/francisco-daniel-castro-borrome-1235a9276"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 hover:scale-110 border"
+            class="flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 hover:scale-110 border hover-glow"
             style="
               color: var(--social-icon-color);
               background: var(--social-icon-bg);
@@ -27,7 +30,7 @@
             href="https://github.com/odimsom"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 hover:scale-110 border"
+            class="flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 hover:scale-110 border hover-glow"
             style="
               color: var(--social-icon-color);
               background: var(--social-icon-bg);
@@ -48,7 +51,7 @@
         <img
           src="profile_image.png"
           alt="Foto de perfil"
-          class="w-48 h-48 object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300"
+          class="w-48 h-48 object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300 animate-float"
           onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSIjMzMzIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiPlBlcmZpbDwvdGV4dD4KPC9zdmc+'"
         />
       </div>
@@ -56,7 +59,7 @@
       <!-- Profile Info -->
       <div class="text-center">
         <h1
-          class="text-4xl font-bold mb-3 tracking-wide"
+          class="text-4xl font-bold mb-3 tracking-wide text-reveal"
           style="color: var(--primary-text)"
         >
           <span style="color: var(--accent-color)">Fran</span>cisco Castro
@@ -81,7 +84,7 @@
           href="https://drive.google.com/uc?export=download&id=1mYBKx_ZmbD3lY-xcMOUO3M6n_-ZJIIi8"
           rel="noopener noreferrer"
           download="FranciscoCastro-SystemsEngineer-CV.pdf"
-          class="transition-all duration-300 hover:scale-110 hover:underline underline-offset-4 font-medium"
+          class="transition-all duration-300 hover:scale-110 hover:underline underline-offset-4 font-medium btn-press"
           [ngStyle]="getDownloadStyles()"
         >
           {{ translationService.translate("profile.downloadCv") }}
@@ -94,17 +97,28 @@
       class="hidden lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-center justify-items-center"
     >
       <!-- Columna 1: Social Links -->
-      <div class="flex justify-center items-center">
+      <div
+        class="flex justify-center items-center"
+        appAnimate="animate-fade-in-left"
+      >
         <app-social-links></app-social-links>
       </div>
 
       <!-- Columna 2: Profile Info -->
-      <div class="flex justify-center items-center">
+      <div
+        class="flex justify-center items-center"
+        appAnimate="animate-fade-in-up"
+        delay="200ms"
+      >
         <app-profile-info></app-profile-info>
       </div>
 
       <!-- Columna 3: Profile Image -->
-      <div class="flex justify-center items-center">
+      <div
+        class="flex justify-center items-center"
+        appAnimate="animate-fade-in-right"
+        delay="400ms"
+      >
         <app-profile-image></app-profile-image>
       </div>
     </div>
@@ -115,21 +129,21 @@
 <app-navigation-layout></app-navigation-layout>
 
 <!-- Section: Skills -->
-<section id="skills" class="py-20 px-6">
+<section id="skills" class="py-20 px-6" appAnimate="animate-fade-in-up">
   <app-skills></app-skills>
 </section>
 
 <!-- Section: Projects -->
-<section id="projects" class="py-20 px-6">
+<section id="projects" class="py-20 px-6" appAnimate="animate-fade-in-up">
   <app-projects></app-projects>
 </section>
 
 <!-- Section: Education -->
-<section id="education" class="py-20 px-6">
+<section id="education" class="py-20 px-6" appAnimate="animate-fade-in-up">
   <app-education></app-education>
 </section>
 
 <!-- Section: Contact -->
-<section id="contact" class="py-20 px-6">
+<section id="contact" class="py-20 px-6" appAnimate="animate-fade-in-up">
   <app-contact></app-contact>
 </section>

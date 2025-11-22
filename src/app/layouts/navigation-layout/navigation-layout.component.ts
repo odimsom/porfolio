@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 interface NavigationItem {
   icon: string;
@@ -20,7 +21,7 @@ interface NavigationItem {
   selector: 'app-navigation-layout',
   templateUrl: './navigation-layout.component.html',
   styleUrls: ['./navigation-layout.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, AnimateOnScrollDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationLayoutComponent implements OnInit, OnDestroy {
