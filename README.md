@@ -1,59 +1,40 @@
-# Personal Porfolio
+# Fran Castro - Portfolio Personal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+¡Bienvenido a mi portafolio profesional! 🚀
 
-## Development server
+Este proyecto es una representación interactiva y moderna de mi trabajo, habilidades y experiencia como desarrollador. Diseñado con un enfoque en la estética visual, la experiencia de usuario (UX) y el rendimiento, este portafolio no solo muestra quién soy, sino también lo que soy capaz de construir.
 
-To start a local development server, run:
+## 🌟 Sobre el Proyecto
 
-```bash
-ng serve
-```
+Este portafolio ha sido desarrollado utilizando las últimas tecnologías web para ofrecer una experiencia fluida y atractiva. No es solo una tarjeta de presentación digital, sino una demostración técnica de desarrollo frontend moderno.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Características Principales:
+- **Diseño Moderno y Responsivo**: Adaptable a cualquier dispositivo, desde móviles hasta pantallas de escritorio.
+- **Animaciones Interactivas**: Uso de partículas y micro-interacciones para dar vida a la interfaz.
+- **Arquitectura Angular**: Construido sobre la robustez de Angular 19, aprovechando componentes standalone y señales.
+- **Estilizado Avanzado**: Implementación de TailwindCSS para un diseño limpio y mantenible.
 
-## Code scaffolding
+## 🛠️ Tecnologías Utilizadas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Framework**: [Angular 19](https://angular.io/)
+- **Estilos**: [TailwindCSS](https://tailwindcss.com/)
+- **Animaciones**: [tsParticles](https://particles.js.org/)
+- **Lenguaje**: TypeScript
 
-```bash
-ng generate component component-name
-```
+## 👨‍💻 Sobre Mí: Fran Castro
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Soy un desarrollador apasionado por crear soluciones digitales que impacten. Me especializo en el desarrollo frontend, donde combino lógica y creatividad para construir interfaces de usuario excepcionales.
 
-```bash
-ng generate --help
-```
+Este portafolio refleja mi dedicación por el código limpio, la arquitectura escalable y el diseño intuitivo. Aquí podrás encontrar mis proyectos más recientes, mi trayectoria profesional y las formas de contactarme para futuras colaboraciones.
 
-## Building
+---
 
-To build the project run:
+## 🚀 Guía de Instalación y Ejecución
 
-```bash
-ng build
-```
+Si deseas clonar este repositorio y ejecutarlo en tu máquina local para ver el código o contribuir, he preparado una guía detallada para ti.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+👉 **[Ver Guía de Ejecución e Instalación](./EXECUTION_GUIDE.md)**
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Hecho con ❤️ por **Fran Castro**.
