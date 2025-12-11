@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
-import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { LucideAngularModule, Code, ExternalLink, Ban } from 'lucide-angular';
 
 interface Project {
   titleKey: string;
@@ -23,10 +23,14 @@ interface Technology {
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
-  imports: [CommonModule, AnimateOnScrollDirective],
+  imports: [CommonModule, LucideAngularModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent {
+  readonly Code = Code;
+  readonly ExternalLink = ExternalLink;
+  readonly Ban = Ban;
+
   translationService = inject(TranslationService);
   themeService = inject(ThemeService);
 

@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
-import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { LucideAngularModule, Monitor, Server, Cloud, Wrench, Database, TestTube, Layers, Users } from 'lucide-angular';
 
 interface SkillCategory {
   titleKey: string;
-  icon: string;
+  icon: any;
   skills: Skill[];
 }
 
@@ -19,7 +19,7 @@ interface Skill {
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
-  imports: [CommonModule, AnimateOnScrollDirective],
+  imports: [CommonModule, LucideAngularModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent {
@@ -29,7 +29,7 @@ export class SkillsComponent {
   skillCategories: SkillCategory[] = [
     {
       titleKey: 'skills.frontend',
-      icon: 'frontend',
+      icon: Monitor,
       skills: [
         { name: 'Angular', color: 'text-red-500' },
         { name: 'TypeScript', color: 'text-blue-500' },
@@ -43,7 +43,7 @@ export class SkillsComponent {
     },
     {
       titleKey: 'skills.backend',
-      icon: 'backend',
+      icon: Server,
       skills: [
         { name: 'C#', color: 'text-purple-600' },
         { name: '.NET Core', color: 'text-purple-500' },
@@ -58,7 +58,7 @@ export class SkillsComponent {
     },
     {
       titleKey: 'skills.cloud',
-      icon: 'cloud',
+      icon: Cloud,
       skills: [
         { name: 'AWS', color: 'text-orange-600' },
         { name: 'Azure', color: 'text-blue-600' },
@@ -70,7 +70,7 @@ export class SkillsComponent {
     },
     {
       titleKey: 'skills.database',
-      icon: 'database',
+      icon: Database,
       skills: [
         { name: 'SQL Server', color: 'text-red-600' },
         { name: 'MySQL', color: 'text-blue-500' },
@@ -81,7 +81,7 @@ export class SkillsComponent {
     },
     {
       titleKey: 'skills.architecture',
-      icon: 'architecture',
+      icon: Layers,
       skills: [
         { name: 'Onion Architecture', color: 'text-purple-500' },
         { name: 'CQRS + MediatR', color: 'text-blue-500' },
@@ -107,21 +107,24 @@ export class SkillsComponent {
     return originalColor;
   }
 
-  getIconColor(iconType: string): string {
+  getIconColor(iconType: any): string {
     const baseClasses = 'transition-colors duration-300';
 
     if (this.themeService.isDark()) {
       // Colores originales para tema oscuro
       switch (iconType) {
-        case 'frontend':
+        case Monitor:
           return `w-8 h-8 text-blue-400 group-hover:text-blue-300 ${baseClasses}`;
-        case 'backend':
+        case Server:
           return `w-8 h-8 text-green-400 group-hover:text-green-300 ${baseClasses}`;
-        case 'devops':
+        case Cloud: // devops mapped to Cloud? In TS it was 'cloud' but switch had 'devops'. Let's check.
+          // The TS had 'cloud' in the array, but 'devops' in the switch.
+          // This means 'cloud' fell into default.
+          // I'll use Cloud here.
           return `w-8 h-8 text-purple-400 group-hover:text-purple-300 ${baseClasses}`;
-        case 'database':
+        case Database:
           return `w-8 h-8 text-yellow-400 group-hover:text-yellow-300 ${baseClasses}`;
-        case 'architecture':
+        case Layers: // architecture
           return `w-8 h-8 text-pink-400 group-hover:text-pink-300 ${baseClasses}`;
         default:
           return `w-8 h-8 text-blue-400 group-hover:text-blue-300 ${baseClasses}`;
@@ -129,15 +132,15 @@ export class SkillsComponent {
     } else {
       // Colores personalizados para tema claro
       switch (iconType) {
-        case 'frontend':
+        case Monitor:
           return `w-8 h-8 ${baseClasses}`;
-        case 'backend':
+        case Server:
           return `w-8 h-8 text-green-400 group-hover:text-green-300 ${baseClasses}`;
-        case 'devops':
+        case Cloud:
           return `w-8 h-8 text-purple-400 group-hover:text-purple-300 ${baseClasses}`;
-        case 'database':
+        case Database:
           return `w-8 h-8 text-yellow-400 group-hover:text-yellow-300 ${baseClasses}`;
-        case 'architecture':
+        case Layers:
           return `w-8 h-8 text-pink-400 group-hover:text-pink-300 ${baseClasses}`;
         default:
           return `w-8 h-8 ${baseClasses}`;
@@ -145,13 +148,13 @@ export class SkillsComponent {
     }
   }
 
-  getIconStyles(iconType: string): any {
+  getIconStyles(iconType: any): any {
     if (this.themeService.isDark()) {
       return null;
     }
 
     // En tema claro, usar #8a0808 para iconos que originalmente eran azules
-    if (iconType === 'frontend' || iconType === 'default') {
+    if (iconType === Monitor || iconType === 'default') {
       return { color: '#8a0808' };
     }
 

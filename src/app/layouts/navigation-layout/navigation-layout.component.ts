@@ -5,14 +5,13 @@ import {
   OnInit,
   OnDestroy,
   ChangeDetectorRef,
-  computed,
 } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
-import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { LucideAngularModule, House, Settings, Code, GraduationCap, Award, Mail } from 'lucide-angular';
 
 interface NavigationItem {
-  icon: string;
+  icon: any;
   href: string;
   nameKey: string;
 }
@@ -21,16 +20,23 @@ interface NavigationItem {
   selector: 'app-navigation-layout',
   templateUrl: './navigation-layout.component.html',
   styleUrls: ['./navigation-layout.component.css'],
-  imports: [CommonModule, AnimateOnScrollDirective],
+  imports: [CommonModule, LucideAngularModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationLayoutComponent implements OnInit, OnDestroy {
-  navigationItems: NavigationItem[] = [
-    { icon: 'home', href: '#home', nameKey: 'nav.home' },
-    { icon: 'cog', href: '#skills', nameKey: 'nav.skills' },
-    { icon: 'code', href: '#projects', nameKey: 'nav.projects' },
-    { icon: 'graduation-cap', href: '#education', nameKey: 'nav.education' },
-    { icon: 'envelope', href: '#contact', nameKey: 'nav.contact' },
+  readonly House = House;
+  readonly Settings = Settings;
+  readonly Code = Code;
+  readonly GraduationCap = GraduationCap;
+  readonly Award = Award;
+  readonly Mail = Mail;
+
+  navigationItems: any[] = [
+    { icon: House, href: '#home', nameKey: 'nav.home' },
+    { icon: Settings, href: '#skills', nameKey: 'nav.skills' },
+    { icon: Code, href: '#projects', nameKey: 'nav.projects' },
+    { icon: GraduationCap, href: '#education', nameKey: 'nav.education' },
+    { icon: Mail, href: '#contact', nameKey: 'nav.contact' },
   ];
 
   activeSection: string = 'home';
