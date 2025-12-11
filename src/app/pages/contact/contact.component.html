@@ -35,7 +35,7 @@
     <!-- Contact Information -->
     <div class="lg:col-span-1" appAnimate="animate-fade-in-left" delay="300ms">
       <div
-        class="rounded-2xl p-8 border transition-all duration-300 hover-glow"
+        class="rounded-2xl p-8 border transition-transform duration-300 hover-glow"
         style="background: var(--card-bg); border-color: var(--card-border)"
       >
         <h2 class="text-2xl font-bold mb-8" style="color: var(--primary-text)">
@@ -86,7 +86,7 @@
             <a
               href="tel:+1{{ contactInfo.phone }}"
               [attr.aria-label]="'Call +1' + contactInfo.phone"
-              class="font-medium hover:text-blue-400 transition-colors duration-200"
+              class="font-medium hover:text-blue-400"
               style="color: var(--primary-text)"
             >
               +1 ({{ contactInfo.phone | slice : 0 : 3 }})
@@ -128,7 +128,7 @@
             <a
               href="mailto:{{ contactInfo.email }}"
               [attr.aria-label]="'Email ' + contactInfo.email"
-              class="font-medium hover:text-blue-400 transition-colors duration-200"
+              class="font-medium hover:text-blue-400"
               style="color: var(--primary-text)"
             >
               {{ contactInfo.email }}
@@ -187,7 +187,7 @@
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              class="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 border btn-press"
+              class="w-10 h-10 rounded-lg flex items-center justify-center transition-transform duration-200 hover:scale-110 border btn-press"
               style="
                 background: var(--social-icon-bg);
                 border-color: var(--social-icon-border);
@@ -227,7 +227,7 @@
     <!-- Contact Form -->
     <div class="lg:col-span-2" appAnimate="animate-fade-in-right" delay="400ms">
       <div
-        class="rounded-2xl p-8 border transition-all duration-300 hover-glow"
+        class="rounded-2xl p-8 border transition-transform duration-300 hover-glow"
         style="background: var(--card-bg); border-color: var(--card-border)"
       >
         <h2 class="text-2xl font-bold mb-8" style="color: var(--primary-text)">
@@ -339,7 +339,7 @@
                 name="name"
                 [(ngModel)]="contactForm.name"
                 required
-                class="w-full px-4 py-3 border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50"
+                class="w-full px-4 py-3 border rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50"
                 style="
                   background: var(--input-bg);
                   border-color: var(--input-border);
@@ -367,7 +367,7 @@
                 [(ngModel)]="contactForm.email"
                 required
                 email
-                class="w-full px-4 py-3 border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50"
+                class="w-full px-4 py-3 border rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50"
                 style="
                   background: var(--input-bg);
                   border-color: var(--input-border);
@@ -395,7 +395,7 @@
               name="subject"
               [(ngModel)]="contactForm.subject"
               required
-              class="w-full px-4 py-3 border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50"
+              class="w-full px-4 py-3 border rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50"
               style="
                 background: var(--input-bg);
                 border-color: var(--input-border);
@@ -422,7 +422,7 @@
               [(ngModel)]="contactForm.message"
               required
               rows="6"
-              class="w-full px-4 py-3 border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 resize-none"
+              class="w-full px-4 py-3 border rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 resize-none"
               style="
                 background: var(--input-bg);
                 border-color: var(--input-border);

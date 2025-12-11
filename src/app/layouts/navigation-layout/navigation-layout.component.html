@@ -9,13 +9,13 @@
           [class]="
             isActive(item.href) ? getActiveClasses() : getInactiveClasses()
           "
-          class="flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ease-in-out hover:scale-105 group relative cursor-pointer mobile-nav-button hover-glow"
+          class="flex items-center justify-center w-12 h-12 rounded-full transition-transform duration-300 ease-in-out hover:scale-105 group relative cursor-pointer mobile-nav-button hover-glow"
           [title]="getNavItemName(item.nameKey)"
         >
           <!-- Home Icon -->
           <svg
             *ngIf="item.icon === 'home'"
-            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
+            class="w-5 h-5 md:w-6 md:h-6"
             fill="currentColor"
             viewBox="0 0 24 24"
             [style.color]="getIconColor(isActive(item.href))"
@@ -31,7 +31,7 @@
           <!-- Skills Icon -->
           <svg
             *ngIf="item.icon === 'cog'"
-            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
+            class="w-5 h-5 md:w-6 md:h-6"
             fill="currentColor"
             viewBox="0 0 512 512"
             [style.color]="getIconColor(isActive(item.href))"
@@ -44,7 +44,7 @@
           <!-- Projects Icon -->
           <svg
             *ngIf="item.icon === 'code'"
-            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
+            class="w-5 h-5 md:w-6 md:h-6"
             fill="currentColor"
             viewBox="0 0 32 32"
             [style.color]="getIconColor(isActive(item.href))"
@@ -61,7 +61,7 @@
           <!-- Education Icon -->
           <svg
             *ngIf="item.icon === 'graduation-cap'"
-            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
+            class="w-5 h-5 md:w-6 md:h-6"
             fill="currentColor"
             viewBox="0 0 24 24"
             [style.color]="getIconColor(isActive(item.href))"
@@ -80,7 +80,7 @@
           <!-- Certificates Icon -->
           <svg
             *ngIf="item.icon === 'award'"
-            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
+            class="w-5 h-5 md:w-6 md:h-6"
             fill="currentColor"
             viewBox="0 0 24 24"
             [style.color]="getIconColor(isActive(item.href))"
@@ -95,7 +95,7 @@
           <!-- Contact Icon -->
           <svg
             *ngIf="item.icon === 'envelope'"
-            class="w-5 h-5 md:w-6 md:h-6 transition-colors duration-300"
+            class="w-5 h-5 md:w-6 md:h-6"
             fill="currentColor"
             viewBox="0 0 24 24"
             [style.color]="getIconColor(isActive(item.href))"

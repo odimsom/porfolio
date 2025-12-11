@@ -35,7 +35,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
       <div
         *ngFor="let project of getFeaturedProjects(); let i = index"
-        class="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-lg group hover-glow"
+        class="rounded-xl p-6 border transition-transform duration-300 hover:scale-105 hover:shadow-lg group hover-glow"
         style="background: var(--card-bg); border-color: var(--card-border)"
         appAnimate="animate-fade-in-up"
         [delay]="i * 150 + 400 + 'ms'"
@@ -112,7 +112,7 @@
             target="_blank"
             rel="noopener noreferrer"
             [attr.aria-label]="'View source code for ' + project.titleKey"
-            class="flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 btn-press"
+            class="flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium transition-transform duration-200 hover:scale-105 btn-press"
             style="
               background: var(--button-secondary-bg);
               border-color: var(--button-secondary-border);
@@ -198,7 +198,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div
         *ngFor="let project of getOtherProjects(); let i = index"
-        class="rounded-xl p-5 border transition-all duration-300 hover:scale-105 hover:shadow-lg group hover-glow"
+        class="rounded-xl p-5 border transition-transform duration-300 hover:scale-105 hover:shadow-lg group hover-glow"
         style="background: var(--card-bg); border-color: var(--card-border)"
         appAnimate="animate-fade-in-up"
         [delay]="i * 100 + 'ms'"
@@ -268,7 +268,7 @@
             [href]="project.githubUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 btn-press"
+            class="flex items-center gap-2 px-3 py-2 border rounded-lg text-sm font-medium transition-transform duration-200 hover:scale-105 btn-press"
             style="
               background: var(--button-secondary-bg);
               border-color: var(--button-secondary-border);

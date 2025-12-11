@@ -122,8 +122,8 @@ export class ProjectsComponent {
   // Métodos para colores dinámicos basados en tema
   getViewDemoButtonClasses(): string {
     return this.themeService.isDark()
-      ? 'flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 border border-blue-500 hover:border-blue-400 rounded-lg text-white text-sm font-medium transition-all duration-200 hover:scale-105'
-      : 'flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-medium transition-all duration-200 hover:scale-105';
+      ? 'flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 border border-blue-500 hover:border-blue-400 rounded-lg text-white text-sm font-medium transition-transform duration-200 hover:scale-105'
+      : 'flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-medium transition-transform duration-200 hover:scale-105';
   }
 
   getViewDemoButtonStyles(): any {
@@ -139,8 +139,8 @@ export class ProjectsComponent {
 
   getViewDemoButtonSmallClasses(): string {
     return this.themeService.isDark()
-      ? 'flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 border border-blue-500 hover:border-blue-400 rounded-lg text-white text-sm font-medium transition-all duration-200 hover:scale-105'
-      : 'flex items-center gap-2 px-3 py-2 rounded-lg text-white text-sm font-medium transition-all duration-200 hover:scale-105';
+      ? 'flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 border border-blue-500 hover:border-blue-400 rounded-lg text-white text-sm font-medium transition-transform duration-200 hover:scale-105'
+      : 'flex items-center gap-2 px-3 py-2 rounded-lg text-white text-sm font-medium transition-transform duration-200 hover:scale-105';
   }
 
   getTechnologyClasses(originalColor: string): string {
@@ -158,7 +158,7 @@ export class ProjectsComponent {
 
   getTechnologyBadgeClasses(technology: Technology): string {
     const baseClasses =
-      'px-3 py-1 text-xs font-medium rounded-full border transition-all duration-200 hover:scale-105';
+      'px-3 py-1 text-xs font-medium rounded-full border transition-transform duration-200 hover:scale-105';
 
     if (this.themeService.isDark()) {
       if (technology.color.includes('text-blue')) {

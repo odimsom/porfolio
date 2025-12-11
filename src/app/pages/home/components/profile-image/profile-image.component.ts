@@ -21,8 +21,8 @@ export class ProfileImageComponent {
 
   getDownloadClasses(): string {
     return this.themeService.isDark()
-      ? 'text-blue-400 hover:text-blue-300 transition-all duration-300 hover:scale-110 hover:underline underline-offset-4 font-medium'
-      : 'transition-all duration-300 hover:scale-110 hover:underline underline-offset-4 font-medium';
+      ? 'text-blue-400 hover:text-blue-300 transition-transform duration-300 hover:scale-110 hover:underline underline-offset-4 font-medium'
+      : 'transition-transform duration-300 hover:scale-110 hover:underline underline-offset-4 font-medium';
   }
 
   getDownloadStyles(): any {
