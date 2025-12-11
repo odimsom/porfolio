@@ -4,15 +4,12 @@
     <h2
       class="text-4xl font-bold text-center mb-4"
       style="color: var(--accent-color)"
-      appAnimate="animate-fade-in-down"
     >
       {{ translationService.translate("education.title") }}
     </h2>
     <p
       class="text-lg text-center mb-16 max-w-3xl mx-auto"
       style="color: var(--secondary-text)"
-      appAnimate="animate-fade-in-up"
-      delay="200ms"
     >
       {{ translationService.translate("education.subtitle") }}
     </p>
@@ -22,7 +19,6 @@
       <!-- Timeline line -->
       <div
         class="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500"
-        appAnimate="animate-scale-in"
       ></div>
 
       <div class="space-y-12">
@@ -30,8 +26,6 @@
           *ngFor="let item of educationItems; let i = index"
           class="relative flex items-center"
           [class.md:flex-row-reverse]="i % 2 === 0"
-          appAnimate="animate-fade-in-up"
-          [delay]="i * 200 + 300 + 'ms'"
         >
           <!-- Timeline dot -->
           <div
@@ -189,7 +183,6 @@
       <h3
         class="text-2xl font-bold mb-8 text-center"
         style="color: var(--primary-text)"
-        appAnimate="animate-fade-in"
       >
         {{ translationService.translate("certificates.itla") }}
         <span class="text-purple-500">{{
@@ -202,8 +195,6 @@
           *ngFor="let cert of getITLACertificates(); let i = index"
           class="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-lg group hover-glow"
           style="background: var(--card-bg); border-color: var(--card-border)"
-          appAnimate="animate-fade-in-up"
-          [delay]="i * 100 + 'ms'"
         >
           <!-- Header -->
           <div class="flex items-start gap-4 mb-4">
@@ -295,8 +286,6 @@
           *ngFor="let cert of getUdemyCertificates(); let i = index"
           class="rounded-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-lg group hover-glow"
           style="background: var(--card-bg); border-color: var(--card-border)"
-          appAnimate="animate-fade-in-up"
-          [delay]="i * 100 + 'ms'"
         >
           <!-- Header -->
           <div class="flex items-start gap-4 mb-4">

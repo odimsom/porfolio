@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
-import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
+import { LucideAngularModule, Phone, Mail, MapPin, Github, Linkedin, Send, Loader2, MessageCircle, CheckCircle, AlertCircle } from 'lucide-angular';
 
 interface ContactForm {
   name: string;
@@ -22,10 +22,21 @@ interface ContactForm {
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
-  imports: [CommonModule, FormsModule, AnimateOnScrollDirective],
+  imports: [CommonModule, FormsModule, LucideAngularModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {
+  readonly Phone = Phone;
+  readonly Mail = Mail;
+  readonly MapPin = MapPin;
+  readonly Github = Github;
+  readonly Linkedin = Linkedin;
+  readonly Send = Send;
+  readonly Loader2 = Loader2;
+  readonly MessageCircle = MessageCircle;
+  readonly CheckCircle = CheckCircle;
+  readonly AlertCircle = AlertCircle;
+
   translationService = inject(TranslationService);
   themeService = inject(ThemeService);
 

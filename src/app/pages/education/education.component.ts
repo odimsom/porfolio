@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
-import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 interface EducationItem {
   titleKey: string;
@@ -28,7 +27,7 @@ interface Certificate {
   selector: 'app-education',
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.css'],
-  imports: [CommonModule, AnimateOnScrollDirective],
+  imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationComponent {

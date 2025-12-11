@@ -12,70 +12,18 @@
   <!-- Skills Grid with Staggered Layout -->
   <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
     <div
-      *ngFor="let category of skillCategories"
+      *ngFor="let category of skillCategories; let i = index"
       class="rounded-xl p-4 border hover:scale-105 transition-all duration-300 hover:shadow-lg break-inside-avoid mb-4"
       style="background: var(--glass-bg); border-color: var(--border-color)"
     >
       <!-- Category Header -->
       <div class="flex items-center mb-3">
-        <!-- Frontend Icon -->
-        <svg
-          *ngIf="category.icon === 'frontend'"
-          class="w-5 h-5 mr-2"
-          style="color: var(--accent-color)"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"
-          />
-        </svg>
-
-        <!-- Backend Icon -->
-        <svg
-          *ngIf="category.icon === 'backend'"
-          class="w-5 h-5 text-green-400 mr-2"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path d="M4 6H20V18H4V6M6 8V16H18V8H6Z" />
-        </svg>
-
-        <!-- Cloud Icon -->
-        <svg
-          *ngIf="category.icon === 'cloud'"
-          class="w-5 h-5 text-cyan-400 mr-2"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M6.5 20Q4.22 20 2.61 18.43Q1 16.85 1 14.58Q1 12.63 2.17 11.1Q3.35 9.57 5.25 9.15Q5.88 6.85 7.75 5.43Q9.63 4 12 4Q14.93 4 16.96 6.04Q19 8.07 19 11Q20.73 11.2 21.86 12.5Q23 13.78 23 15.5Q23 17.38 21.69 18.69Q20.38 20 18.5 20H6.5Z"
-          />
-        </svg>
-
-        <!-- Database Icon -->
-        <svg
-          *ngIf="category.icon === 'database'"
-          class="w-5 h-5 text-yellow-400 mr-2"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 3C7.58 3 4 4.79 4 7V17C4 19.21 7.59 21 12 21S20 19.21 20 17V7C20 4.79 16.42 3 12 3M18 17C18 17.5 15.87 19 12 19S6 17.5 6 17V14.77C7.61 15.55 9.72 16 12 16S16.39 15.55 18 14.77V17M18 12.45C16.7 13.4 14.42 14 12 14C9.58 14 7.3 13.4 6 12.45V9.64C7.47 10.47 9.61 11 12 11C14.39 11 16.53 10.47 18 9.64V12.45M12 9C8.13 9 6 7.5 6 7S8.13 5 12 5S18 6.5 18 7S15.87 9 12 9Z"
-          />
-        </svg>
-
-        <!-- Architecture Icon -->
-        <svg
-          *ngIf="category.icon === 'architecture'"
-          class="w-5 h-5 text-purple-400 mr-2"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 1L3 5L12 9L21 5L12 1M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"
-          />
-        </svg>
+        <lucide-icon
+          [img]="category.icon"
+          [class]="getIconColor(category.icon)"
+          [ngStyle]="getIconStyles(category.icon)"
+          class="mr-2"
+        ></lucide-icon>
 
         <h3 class="text-base font-semibold" style="color: var(--primary-text)">
           {{ translationService.translate(category.titleKey) }}
