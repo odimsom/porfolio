@@ -85,6 +85,7 @@
             </p>
             <a
               href="tel:+1{{ contactInfo.phone }}"
+              [attr.aria-label]="'Call +1' + contactInfo.phone"
               class="font-medium hover:text-blue-400 transition-colors duration-200"
               style="color: var(--primary-text)"
             >
@@ -126,6 +127,7 @@
             </p>
             <a
               href="mailto:{{ contactInfo.email }}"
+              [attr.aria-label]="'Email ' + contactInfo.email"
               class="font-medium hover:text-blue-400 transition-colors duration-200"
               style="color: var(--primary-text)"
             >
@@ -184,6 +186,7 @@
               href="https://github.com/odimsom"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub Profile"
               class="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 border btn-press"
               style="
                 background: var(--social-icon-bg);
@@ -201,6 +204,7 @@
               href="https://www.linkedin.com/in/francisco-daniel-castro-borrome-1235a9276"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
               [class]="getSocialIconClasses() + ' btn-press'"
               [ngStyle]="getSocialIconStyles()"
             >

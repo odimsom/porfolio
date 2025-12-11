@@ -1,0 +1,69 @@
+{
+  "project_name": "Portfolio Francisco Castro",
+  "visual_identity": {
+    "theme": "Dark Mode (Default)",
+    "color_palette": {
+      "primary_bg": "#000000",
+      "secondary_bg": "rgba(17, 24, 39, 0.95)",
+      "accent_color": "#3b82f6",
+      "primary_text": "#ffffff",
+      "secondary_text": "#d1d5db",
+      "border_color": "rgba(75, 85, 99, 0.3)",
+      "glass_bg": "rgba(255, 255, 255, 0.1)",
+      "glass_border": "rgba(255, 255, 255, 0.2)",
+      "particle_color": "#3b82f6"
+    },
+    "typography": {
+      "headings": "Sans-serif, Bold, Tracking-wide",
+      "body": "Sans-serif, Clean",
+      "special_effects": ["Text Reveal"]
+    }
+  },
+  "layout_structure": {
+    "global": {
+      "background": "Fixed particle-background with blue connections",
+      "navigation": "Fixed app-navigation-layout",
+      "controls": "Floating theme/language toggles"
+    },
+    "home_section": {
+      "desktop": {
+        "type": "Grid",
+        "columns": 3,
+        "structure": [
+          "Left: Vertical Social Links",
+          "Center: Profile Info",
+          "Right: Profile Image"
+        ]
+      },
+      "mobile": {
+        "type": "Flex Column",
+        "structure": [
+          "Social Links (Horizontal)",
+          "Profile Image",
+          "Profile Info",
+          "Download CV Button"
+        ]
+      }
+    }
+  },
+  "components": {
+    "social_icons": {
+      "shape": "rounded-full",
+      "interactions": ["hover:scale-110", "hover-glow"],
+      "colors": {
+        "bg": "rgba(55, 65, 81, 0.5)",
+        "icon": "#ffffff",
+        "border": "rgba(75, 85, 99, 0.3)"
+      }
+    },
+    "profile_image": {
+      "shape": "rounded-2xl",
+      "effects": ["shadow-2xl", "animate-float", "hover:scale-105"]
+    },
+    "buttons": {
+      "style": "Glassy background",
+      "interactions": ["hover:scale-110", "hover:underline"]
+    }
+  },
+  "image_generation_prompt": "A high-fidelity UI design mockup of a modern developer portfolio website in dark mode. Deep dark blue/black background (#000000) with a subtle blue particle network effect. Electric Blue (#3b82f6) accents. Glassmorphism style cards. Center layout: Left column with vertical social icons. Center column with large typography 'Francisco Castro' (Fran in blue) and 'Systems Engineer' subtitle. Right column with a rounded-square profile picture with a floating animation. Sleek, professional, glowing tech atmosphere."
+}

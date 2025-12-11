@@ -111,6 +111,7 @@
             [href]="project.githubUrl"
             target="_blank"
             rel="noopener noreferrer"
+            [attr.aria-label]="'View source code for ' + project.titleKey"
             class="flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 btn-press"
             style="
               background: var(--button-secondary-bg);
@@ -131,6 +132,7 @@
             [href]="project.liveUrl"
             target="_blank"
             rel="noopener noreferrer"
+            [attr.aria-label]="'View live demo for ' + project.titleKey"
             [class]="getViewDemoButtonClasses() + ' btn-press'"
             [ngStyle]="getViewDemoButtonStyles()"
           >
