@@ -60,7 +60,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   private initSectionAnimations(): void {
     const sections = document.querySelectorAll('.section-animate, .section-animate-left, .section-animate-right, .section-animate-scale');
-    
+
     const observerOptions: IntersectionObserverInit = {
       root: null,
       rootMargin: '0px 0px -10% 0px',
