@@ -44,15 +44,15 @@
 
 /* Iconos */
 .control-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  transition: all 0.3s ease;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.15s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   fill: currentColor !important;
   color: inherit !important;
 }
 
 .control-btn:hover .control-icon {
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(5deg);
 }
 
 /* Banderas */

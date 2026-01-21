@@ -9,7 +9,9 @@ import { FormsModule } from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
-import { LucideAngularModule, Phone, Mail, MapPin, Github, Linkedin, Send, Loader2, MessageCircle, CheckCircle, AlertCircle } from 'lucide-angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faPhone, faEnvelope, faMapMarkerAlt, faPaperPlane, faSpinner, faCommentDots, faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 interface ContactForm {
   name: string;
@@ -22,20 +24,20 @@ interface ContactForm {
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
-  imports: [CommonModule, FormsModule, LucideAngularModule],
+  imports: [CommonModule, FormsModule, FontAwesomeModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {
-  readonly Phone = Phone;
-  readonly Mail = Mail;
-  readonly MapPin = MapPin;
-  readonly Github = Github;
-  readonly Linkedin = Linkedin;
-  readonly Send = Send;
-  readonly Loader2 = Loader2;
-  readonly MessageCircle = MessageCircle;
-  readonly CheckCircle = CheckCircle;
-  readonly AlertCircle = AlertCircle;
+  readonly faPhone = faPhone;
+  readonly faEnvelope = faEnvelope;
+  readonly faMapMarkerAlt = faMapMarkerAlt;
+  readonly faGithub = faGithub;
+  readonly faLinkedin = faLinkedin;
+  readonly faPaperPlane = faPaperPlane;
+  readonly faSpinner = faSpinner;
+  readonly faWhatsapp = faWhatsapp;
+  readonly faCheckCircle = faCheckCircle;
+  readonly faExclamationCircle = faExclamationCircle;
 
   translationService = inject(TranslationService);
   themeService = inject(ThemeService);
@@ -155,7 +157,7 @@ export class ContactComponent {
 
   // Métodos para colores dinámicos basados en tema
   getContactIconClasses(): string {
-    return 'w-12 h-12 rounded-lg flex items-center justify-center border';
+    return 'w-14 h-14 rounded-lg flex items-center justify-center border';
   }
 
   getContactIconStyles(): any {
@@ -218,7 +220,7 @@ export class ContactComponent {
   }
 
   getSocialIconClasses(): string {
-    return 'w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110';
+    return 'w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110';
   }
 
   getSocialIconStyles(): any {

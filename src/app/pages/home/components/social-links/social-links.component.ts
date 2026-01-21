@@ -1,29 +1,30 @@
-import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { SocialLink } from '../../interfaces';
-import { LucideAngularModule, Linkedin, Github } from 'lucide-angular';
 
 @Component({
   selector: 'app-social-links',
   templateUrl: './social-links.component.html',
   styleUrls: ['./social-links.component.css'],
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, FontAwesomeModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SocialLinksComponent {
-  readonly Linkedin = Linkedin;
-  readonly Github = Github;
+  readonly faGithub = faGithub;
+  readonly faLinkedin = faLinkedin;
 
   socialLinks: SocialLink[] = [
     {
       platform: 'linkedin',
-      icon: Linkedin,
+      icon: faLinkedin,
       url: 'https://www.linkedin.com/in/francisco-daniel-castro-borrome-1235a9276',
       name: 'LinkedIn',
     },
     {
       platform: 'github',
-      icon: Github,
+      icon: faGithub,
       url: 'https://github.com/odimsom',
       name: 'GitHub',
     },

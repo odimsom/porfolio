@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
-import { LucideAngularModule, Code, ExternalLink, Ban } from 'lucide-angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCode, faExternalLinkAlt, faBan } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 interface Project {
   titleKey: string;
@@ -23,13 +25,14 @@ interface Technology {
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, FontAwesomeModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent {
-  readonly Code = Code;
-  readonly ExternalLink = ExternalLink;
-  readonly Ban = Ban;
+  readonly faCode = faCode;
+  readonly faExternalLinkAlt = faExternalLinkAlt;
+  readonly faBan = faBan;
+  readonly faGithub = faGithub;
 
   translationService = inject(TranslationService);
   themeService = inject(ThemeService);

@@ -2,6 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faAngular, faPython, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
+import { faCode, faCertificate, faGraduationCap, faBook, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 interface EducationItem {
   titleKey: string;
@@ -20,17 +24,23 @@ interface Certificate {
   dateKey: string;
   skills: string[];
   credentialUrl?: string;
-  icon: string;
+  icon: IconDefinition;
 }
 
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationComponent {
+  readonly faAngular = faAngular;
+  readonly faPython = faPython;
+  readonly faCode = faCode;
+  readonly faMicrosoft = faMicrosoft;
+  readonly faLaptopCode = faLaptopCode;
+  
   translationService = inject(TranslationService);
   themeService = inject(ThemeService);
 
@@ -53,35 +63,35 @@ export class EducationComponent {
       issuerKey: 'certificates.itla.issuer',
       dateKey: 'certificates.csharpBasic.date',
       skills: ['C#', 'Programación', 'OOP', 'Fundamentos'],
-      icon: 'csharp',
+      icon: faMicrosoft,
     },
     {
       titleKey: 'certificates.csharpIntermediate.title',
       issuerKey: 'certificates.itla.issuer',
       dateKey: 'certificates.csharpIntermediate.date',
       skills: ['C#', 'Entity Framework', 'APIs', 'Bases de Datos'],
-      icon: 'csharp',
+      icon: faMicrosoft,
     },
     {
       titleKey: 'certificates.csharpAdvanced.title',
       issuerKey: 'certificates.itla.issuer',
       dateKey: 'certificates.csharpAdvanced.date',
       skills: ['C#', 'Arquitectura', 'Patrones', 'Clean Code'],
-      icon: 'csharp',
+      icon: faMicrosoft,
     },
     {
       titleKey: 'certificates.angular.title',
       issuerKey: 'certificates.udemy.issuer',
       dateKey: 'certificates.angular.date',
       skills: ['Angular', 'TypeScript', 'RxJS', 'Componentes'],
-      icon: 'angular',
+      icon: faAngular,
     },
     {
       titleKey: 'certificates.python.title',
       issuerKey: 'certificates.udemy.issuer',
       dateKey: 'certificates.python.date',
       skills: ['Python', 'Programación', 'Sintaxis', 'Fundamentos'],
-      icon: 'python',
+      icon: faPython,
     },
   ];
 
@@ -139,5 +149,26 @@ export class EducationComponent {
           color: '#8a0808',
           borderColor: 'rgba(138, 8, 8, 0.3)',
         };
+  }
+
+  getCertificateIconClass(icon: IconDefinition): string {
+    if (icon === this.faAngular) return 'text-red-400';
+    if (icon === this.faPython) return 'text-yellow-400';
+    if (icon === this.faMicrosoft) return 'text-blue-400';
+    return 'text-purple-400';
+  }
+
+  getCertificateContainerClass(icon: IconDefinition): string {
+    if (icon === this.faAngular) return 'bg-red-500/20 border-red-500/30';
+    if (icon === this.faPython) return 'bg-yellow-500/20 border-yellow-500/30';
+    if (icon === this.faMicrosoft) return 'bg-blue-500/20 border-blue-500/30';
+    return 'bg-purple-500/20 border-purple-500/30';
+  }
+
+  getCertificateBadgeClass(icon: IconDefinition): string {
+    if (icon === this.faAngular) return 'bg-red-500/20 text-red-400 border-red-500/30';
+    if (icon === this.faPython) return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
+    if (icon === this.faMicrosoft) return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
+    return 'bg-purple-500/20 text-purple-400 border-purple-500/30';
   }
 }

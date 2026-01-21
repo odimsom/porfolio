@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../services/theme.service';
 import { TranslationService } from '../../services/translation.service';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
-import { LucideAngularModule, Sun, Moon } from 'lucide-angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-control-buttons',
   standalone: true,
-  imports: [CommonModule, AnimateOnScrollDirective, LucideAngularModule],
+  imports: [CommonModule, AnimateOnScrollDirective, FontAwesomeModule],
   encapsulation: ViewEncapsulation.None,
   template: `
     <div class="control-buttons" appAnimate="animate-fade-in-left">
@@ -20,20 +21,20 @@ import { LucideAngularModule, Sun, Moon } from 'lucide-angular';
         class="hover-lift"
       >
         <!-- Sol (tema claro activo) -->
-        <lucide-icon
+        <fa-icon
           *ngIf="themeService.isLight()"
-          [img]="Sun"
+          [icon]="faSun"
           class="control-icon"
           [style.color]="getIconColor()"
-        ></lucide-icon>
+        ></fa-icon>
 
         <!-- Luna (tema oscuro activo) -->
-        <lucide-icon
+        <fa-icon
           *ngIf="themeService.isDark()"
-          [img]="Moon"
+          [icon]="faMoon"
           class="control-icon"
           [style.color]="getIconColor()"
-        ></lucide-icon>
+        ></fa-icon>
       </button>
 
       <!-- Botón de idioma -->
@@ -61,8 +62,8 @@ import { LucideAngularModule, Sun, Moon } from 'lucide-angular';
   styleUrls: ['./control-buttons.component.css'],
 })
 export class ControlButtonsComponent {
-  readonly Sun = Sun;
-  readonly Moon = Moon;
+  readonly faSun = faSun;
+  readonly faMoon = faMoon;
 
   constructor(
     public themeService: ThemeService,

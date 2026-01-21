@@ -1,0 +1,104 @@
+<div class="max-w-4xl mx-auto px-6">
+  <h2
+    class="text-4xl font-bold text-center mb-12"
+    style="color: var(--primary-text)"
+    appAnimate="animate-fade-in-up"
+  >
+    {{ translationService.translate("experience.title").split(" ")[0] }}
+    <span style="color: var(--accent-color)">{{
+      translationService
+        .translate("experience.title")
+        .split(" ")
+        .slice(1)
+        .join(" ")
+    }}</span>
+  </h2>
+
+  <div
+    class="relative border-l-2 ml-3 md:ml-6 space-y-12"
+    style="border-color: var(--border-color)"
+  >
+    <div
+      *ngFor="let exp of experiences"
+      class="relative pl-8 md:pl-12"
+      appAnimate="animate-fade-in-up"
+    >
+      <!-- Timeline Dot -->
+      <div
+        class="absolute -left-[9px] top-0 w-4 h-4 rounded-full border-2 transition-transform duration-300 hover:scale-125"
+        style="
+          background: var(--accent-color);
+          border-color: var(--primary-bg);
+          box-shadow: 0 0 0 4px var(--primary-bg);
+        "
+      ></div>
+
+      <!-- Content Card -->
+      <div
+        class="rounded-xl p-6 border transition-all duration-300 hover:shadow-lg group hover-glow"
+        style="background: var(--card-bg); border-color: var(--card-border)"
+      >
+        <!-- Header -->
+        <div
+          class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4"
+        >
+          <div>
+            <h3
+              class="text-xl font-bold mb-1"
+              style="color: var(--primary-text)"
+            >
+              {{ translationService.translate(exp.roleKey) }}
+            </h3>
+            <div class="flex items-center gap-2 mb-2">
+              <fa-icon [icon]="faBuilding" class="text-gray-400"></fa-icon>
+              <span class="font-medium" style="color: var(--accent-color)">
+                {{ translationService.translate(exp.companyKey) }}
+              </span>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col gap-1 text-sm"
+            style="color: var(--secondary-text)"
+          >
+            <div class="flex items-center gap-2">
+              <fa-icon [icon]="faCalendarAlt"></fa-icon>
+              <span>{{ translationService.translate(exp.periodKey) }}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+              <span
+                >{{ translationService.translate(exp.locationKey) }} ({{
+                  translationService.translate(exp.locationTypeKey)
+                }})</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div
+          class="mb-6 whitespace-pre-line leading-relaxed text-sm md:text-base"
+          style="color: var(--secondary-text)"
+        >
+          {{ translationService.translate(exp.descriptionKey) }}
+        </div>
+
+        <!-- Technologies -->
+        <div class="flex flex-wrap gap-2">
+          <span
+            *ngFor="let tech of exp.technologies"
+            class="px-3 py-1 text-xs font-medium rounded-full border transition-transform duration-200 hover:scale-105"
+            [class]="getTechnologyClasses(tech.color)"
+            style="
+              background: var(--glass-bg);
+              border-color: var(--border-color);
+            "
+          >
+            {{ tech.name }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
