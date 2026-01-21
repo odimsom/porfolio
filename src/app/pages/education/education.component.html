@@ -33,7 +33,7 @@
             [class]="getStatusClasses(item.status)"
             [ngStyle]="getStatusStyles(item.status)"
             [ngClass]="{
-              'bg-purple-500 border-purple-400': item.status === 'completed'
+              'bg-purple-500 border-purple-400': item.status === 'completed',
             }"
           ></div>
 
@@ -70,22 +70,22 @@
                   class="px-3 py-1 text-xs font-medium rounded-full border"
                   [ngClass]="{
                     'bg-green-500/20 text-green-400 border-green-500/30':
-                      item.status === 'current'
+                      item.status === 'current',
                   }"
                   [ngStyle]="
                     item.status === 'completed' && !themeService.isDark()
                       ? {
                           backgroundColor: 'rgba(138, 8, 8, 0.2)',
                           color: '#8a0808',
-                          borderColor: 'rgba(138, 8, 8, 0.3)'
+                          borderColor: 'rgba(138, 8, 8, 0.3)',
                         }
                       : item.status === 'completed' && themeService.isDark()
-                      ? {
-                          backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                          color: '#60a5fa',
-                          borderColor: 'rgba(59, 130, 246, 0.3)'
-                        }
-                      : null
+                        ? {
+                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                            color: '#60a5fa',
+                            borderColor: 'rgba(59, 130, 246, 0.3)',
+                          }
+                        : null
                   "
                 >
                   {{
@@ -200,17 +200,13 @@
           <div class="flex items-start gap-4 mb-4">
             <!-- Icon -->
             <div
-              class="flex-shrink-0 w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center border border-purple-500/30"
+              class="flex-shrink-0 w-14 h-14 bg-purple-500/20 rounded-lg flex items-center justify-center border border-purple-500/30"
             >
-              <svg
-                class="w-6 h-6 text-purple-400"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0z"
-                />
-              </svg>
+              <fa-icon
+                [icon]="cert.icon"
+                [style.font-size]="'2rem'"
+                class="text-purple-400"
+              ></fa-icon>
             </div>
 
             <div class="flex-1">
@@ -291,32 +287,15 @@
           <div class="flex items-start gap-4 mb-4">
             <!-- Icon -->
             <div
-              class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center border"
-              [ngClass]="{
-                'bg-red-500/20 border-red-500/30': cert.icon === 'angular',
-                'bg-yellow-500/20 border-yellow-500/30': cert.icon === 'python'
-              }"
+              class="flex-shrink-0 w-14 h-14 rounded-lg flex items-center justify-center border"
+              [class]="getCertificateContainerClass(cert.icon)"
             >
-              <!-- Angular Icon -->
-              <svg
-                *ngIf="cert.icon === 'angular'"
-                class="w-6 h-6 text-red-400"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2L1 6l2 14.5L12 22l9-1.5L23 6L12 2z" />
-              </svg>
-              <!-- Python Icon -->
-              <svg
-                *ngIf="cert.icon === 'python'"
-                class="w-6 h-6 text-yellow-400"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 0C8.84 0 8.11.42 8.11 1.11V4H16v1H5.78C4.6 5 3.41 5.62 2.81 7.35c-.75 2.13-.78 3.45 0 5.72.58 1.7 1.97 2.93 3.16 2.93h2.03v-2.78c0-1.81 1.55-3.41 3.38-3.41h6.84c1.51 0 2.72-1.25 2.72-2.75V2.86C20.94 1.32 19.38 0 17.86 0H12z"
-                />
-              </svg>
+              <!-- Icon -->
+              <fa-icon
+                [icon]="cert.icon"
+                [style.font-size]="'2rem'"
+                [class]="getCertificateIconClass(cert.icon)"
+              ></fa-icon>
             </div>
 
             <div class="flex-1">
@@ -359,12 +338,7 @@
               <span
                 *ngFor="let skill of cert.skills"
                 class="px-2 py-1 text-xs font-medium rounded-md border"
-                [ngClass]="{
-                  'bg-red-500/20 text-red-400 border-red-500/30':
-                    cert.icon === 'angular',
-                  'bg-yellow-500/20 text-yellow-400 border-yellow-500/30':
-                    cert.icon === 'python'
-                }"
+                [class]="getCertificateBadgeClass(cert.icon)"
               >
                 {{ skill }}
               </span>

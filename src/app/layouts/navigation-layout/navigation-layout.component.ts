@@ -8,7 +8,8 @@ import {
 } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
-import { LucideAngularModule, House, Settings, Code, GraduationCap, Award, Mail } from 'lucide-angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faHome, faCogs, faCode, faBriefcase, faGraduationCap, faAward, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 interface NavigationItem {
   icon: any;
@@ -20,23 +21,25 @@ interface NavigationItem {
   selector: 'app-navigation-layout',
   templateUrl: './navigation-layout.component.html',
   styleUrls: ['./navigation-layout.component.css'],
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, FontAwesomeModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationLayoutComponent implements OnInit, OnDestroy {
-  readonly House = House;
-  readonly Settings = Settings;
-  readonly Code = Code;
-  readonly GraduationCap = GraduationCap;
-  readonly Award = Award;
-  readonly Mail = Mail;
+  readonly faHome = faHome;
+  readonly faCogs = faCogs;
+  readonly faCode = faCode;
+  readonly faBriefcase = faBriefcase;
+  readonly faGraduationCap = faGraduationCap;
+  readonly faAward = faAward;
+  readonly faEnvelope = faEnvelope;
 
   navigationItems: any[] = [
-    { icon: House, href: '#home', nameKey: 'nav.home' },
-    { icon: Settings, href: '#skills', nameKey: 'nav.skills' },
-    { icon: Code, href: '#projects', nameKey: 'nav.projects' },
-    { icon: GraduationCap, href: '#education', nameKey: 'nav.education' },
-    { icon: Mail, href: '#contact', nameKey: 'nav.contact' },
+    { icon: faHome, href: '#home', nameKey: 'nav.home' },
+    { icon: faCogs, href: '#skills', nameKey: 'nav.skills' },
+    { icon: faBriefcase, href: '#experience', nameKey: 'nav.experience' },
+    { icon: faCode, href: '#projects', nameKey: 'nav.projects' },
+    { icon: faGraduationCap, href: '#education', nameKey: 'nav.education' },
+    { icon: faEnvelope, href: '#contact', nameKey: 'nav.contact' },
   ];
 
   activeSection: string = 'home';
@@ -62,7 +65,7 @@ export class NavigationLayoutComponent implements OnInit, OnDestroy {
   }
 
   updateActiveSection() {
-    const sections = ['home', 'skills', 'projects', 'education', 'contact'];
+    const sections = ['home', 'skills', 'experience', 'projects', 'education', 'contact'];
     const scrollPosition = window.scrollY + window.innerHeight / 2; // Better detection
 
     for (let i = sections.length - 1; i >= 0; i--) {

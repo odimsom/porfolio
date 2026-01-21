@@ -12,9 +12,11 @@ import { SkillsComponent } from '../skills/skills.component';
 import { ProjectsComponent } from '../projects/projects.component';
 import { EducationComponent } from '../education/education.component';
 import { ContactComponent } from '../contact/contact.component';
+import { ExperienceComponent } from '../experience/experience.component';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
-import { LucideAngularModule, Linkedin, Github } from 'lucide-angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -31,13 +33,14 @@ import { LucideAngularModule, Linkedin, Github } from 'lucide-angular';
     ProjectsComponent,
     EducationComponent,
     ContactComponent,
-    LucideAngularModule,
+    ExperienceComponent,
+    FontAwesomeModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
-  readonly Linkedin = Linkedin;
-  readonly Github = Github;
+  readonly faLinkedin = faLinkedin;
+  readonly faGithub = faGithub;
 
   translationService = inject(TranslationService);
   themeService = inject(ThemeService);

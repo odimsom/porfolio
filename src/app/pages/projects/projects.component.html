@@ -8,10 +8,7 @@
       translationService.translate("projects.title").split(" ")[1]
     }}</span>
   </h2>
-  <p
-    class="text-lg text-center mb-12"
-    style="color: var(--secondary-text)"
-  >
+  <p class="text-lg text-center mb-12" style="color: var(--secondary-text)">
     {{ translationService.translate("projects.subtitle") }}
   </p>
 
@@ -27,11 +24,12 @@
       }}</span>
     </h3>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div
         *ngFor="let project of getFeaturedProjects(); let i = index"
-        class="rounded-xl p-6 border transition-transform duration-300 hover:scale-105 hover:shadow-lg group hover-glow"
+        class="rounded-xl p-8 border transition-all duration-500 group hover-glow blur-in project-card flex flex-col"
         style="background: var(--card-bg); border-color: var(--card-border)"
+        [style.animation-delay]="i * 150 + 'ms'"
       >
         <!-- Project Header -->
         <div class="flex items-center justify-between mb-4">
@@ -45,22 +43,22 @@
             class="px-3 py-1 text-xs font-medium rounded-full border"
             [ngClass]="{
               'bg-purple-500/20 text-purple-400 border-purple-500/30':
-                project.category === 'Completo'
+                project.category === 'Completo',
             }"
             [ngStyle]="
               project.category === 'Frontend' && !themeService.isDark()
                 ? {
                     backgroundColor: 'rgba(138, 8, 8, 0.2)',
                     color: '#8a0808',
-                    borderColor: 'rgba(138, 8, 8, 0.3)'
+                    borderColor: 'rgba(138, 8, 8, 0.3)',
                   }
                 : project.category === 'Frontend' && themeService.isDark()
-                ? {
-                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                    color: '#60a5fa',
-                    borderColor: 'rgba(59, 130, 246, 0.3)'
-                  }
-                : null
+                  ? {
+                      backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                      color: '#60a5fa',
+                      borderColor: 'rgba(59, 130, 246, 0.3)',
+                    }
+                  : null
             "
           >
             {{ project.category }}
@@ -76,7 +74,7 @@
         </p>
 
         <!-- Technologies -->
-        <div class="mb-6">
+        <div class="mb-6 flex-grow">
           <h5
             class="text-sm font-semibold mb-3"
             style="color: var(--primary-text)"
@@ -86,7 +84,7 @@
           <div class="flex flex-wrap gap-2">
             <span
               *ngFor="let tech of project.technologies"
-              class="px-2 py-1 text-xs font-medium rounded-md border transition-colors duration-200"
+              class="px-2 py-1 text-xs font-medium rounded-md border transition-colors duration-200 badge-sheen"
               style="
                 background: var(--glass-bg);
                 border-color: var(--border-color);
@@ -99,7 +97,7 @@
         </div>
 
         <!-- Action Buttons -->
-        <div class="flex gap-3">
+        <div class="flex gap-3 mt-auto">
           <a
             [href]="project.githubUrl"
             target="_blank"
@@ -112,7 +110,7 @@
               color: var(--button-secondary-text);
             "
           >
-            <lucide-icon [img]="Code" class="w-4 h-4"></lucide-icon>
+            <fa-icon [icon]="faCode" class="w-4 h-4"></fa-icon>
             {{ translationService.translate("projects.code") }}
           </a>
 
@@ -125,7 +123,7 @@
             [class]="getViewDemoButtonClasses() + ' btn-press'"
             [ngStyle]="getViewDemoButtonStyles()"
           >
-            <lucide-icon [img]="ExternalLink" class="w-4 h-4"></lucide-icon>
+            <fa-icon [icon]="faExternalLinkAlt" class="w-4 h-4"></fa-icon>
             {{ translationService.translate("projects.demo") }}
           </a>
 
@@ -139,7 +137,7 @@
               color: var(--button-disabled-text);
             "
           >
-            <lucide-icon [img]="Ban" class="w-4 h-4"></lucide-icon>
+            <fa-icon [icon]="faBan" class="w-4 h-4"></fa-icon>
             {{ translationService.translate("projects.notDeployed") }}
           </button>
         </div>
@@ -163,7 +161,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div
         *ngFor="let project of getOtherProjects(); let i = index"
-        class="rounded-xl p-5 border transition-transform duration-300 hover:scale-105 hover:shadow-lg group hover-glow"
+        class="rounded-xl p-5 border transition-transform duration-300 hover:scale-105 hover:shadow-lg group hover-glow animate-fade-in-up animate-duration-700"
         style="background: var(--card-bg); border-color: var(--card-border)"
       >
         <!-- Project Header -->
@@ -178,22 +176,22 @@
             class="px-2 py-1 text-xs font-medium rounded-full border"
             [ngClass]="{
               'bg-purple-500/20 text-purple-400 border-purple-500/30':
-                project.category === 'Completo'
+                project.category === 'Completo',
             }"
             [ngStyle]="
               project.category === 'Frontend' && !themeService.isDark()
                 ? {
                     backgroundColor: 'rgba(138, 8, 8, 0.2)',
                     color: '#8a0808',
-                    borderColor: 'rgba(138, 8, 8, 0.3)'
+                    borderColor: 'rgba(138, 8, 8, 0.3)',
                   }
                 : project.category === 'Frontend' && themeService.isDark()
-                ? {
-                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                    color: '#60a5fa',
-                    borderColor: 'rgba(59, 130, 246, 0.3)'
-                  }
-                : null
+                  ? {
+                      backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                      color: '#60a5fa',
+                      borderColor: 'rgba(59, 130, 246, 0.3)',
+                    }
+                  : null
             "
           >
             {{ project.category }}
@@ -238,7 +236,7 @@
               color: var(--button-secondary-text);
             "
           >
-            <lucide-icon [img]="Code" class="w-4 h-4"></lucide-icon>
+            <fa-icon [icon]="faCode" class="w-4 h-4"></fa-icon>
             {{ translationService.translate("projects.code") }}
           </a>
 
@@ -250,7 +248,7 @@
             [class]="getViewDemoButtonSmallClasses() + ' btn-press'"
             [ngStyle]="getViewDemoButtonStyles()"
           >
-            <lucide-icon [img]="ExternalLink" class="w-4 h-4"></lucide-icon>
+            <fa-icon [icon]="faExternalLinkAlt" class="w-4 h-4"></fa-icon>
             {{ translationService.translate("projects.demo") }}
           </a>
 
@@ -264,7 +262,7 @@
               color: var(--button-disabled-text);
             "
           >
-            <lucide-icon [img]="Ban" class="w-4 h-4"></lucide-icon>
+            <fa-icon [icon]="faBan" class="w-4 h-4"></fa-icon>
             {{ translationService.translate("projects.notDeployed") }}
           </button>
         </div>

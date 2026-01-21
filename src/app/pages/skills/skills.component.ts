@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faDesktop, faServer, faCloud, faDatabase, faLayerGroup, faCode, faTerminal, faCogs, faGlobe, faUsers, faUserTie, faHandshake, faPuzzlePiece, faSync, faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faAngular, faReact, faJs, faHtml5, faCss3Alt, faBootstrap, faNodeJs, faAws, faMicrosoft, faGitAlt, faGithub, faDocker } from '@fortawesome/free-brands-svg-icons';
 import { TranslationService } from '../../services/translation.service';
 import { ThemeService } from '../../services/theme.service';
-import { LucideAngularModule, Monitor, Server, Cloud, Wrench, Database, TestTube, Layers, Users } from 'lucide-angular';
 
 interface SkillCategory {
   titleKey: string;
@@ -19,31 +21,38 @@ interface Skill {
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, FontAwesomeModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent {
   translationService = inject(TranslationService);
   themeService = inject(ThemeService);
 
+  faUsers = faUsers;
+  faUserTie = faUserTie;
+  faHandshake = faHandshake;
+  faPuzzlePiece = faPuzzlePiece;
+  faSync = faSync;
+  faLightbulb = faLightbulb;
+
   skillCategories: SkillCategory[] = [
     {
       titleKey: 'skills.frontend',
-      icon: Monitor,
+      icon: faDesktop,
       skills: [
         { name: 'Angular', color: 'text-red-500' },
+        { name: 'React', color: 'text-blue-500' },
         { name: 'TypeScript', color: 'text-blue-500' },
         { name: 'JavaScript', color: 'text-yellow-500' },
         { name: 'HTML5', color: 'text-orange-500' },
         { name: 'CSS3', color: 'text-blue-400' },
         { name: 'Tailwind CSS', color: 'text-cyan-500' },
         { name: 'Bootstrap', color: 'text-purple-500' },
-        { name: 'Dart/Flutter', color: 'text-blue-600' },
       ],
     },
     {
       titleKey: 'skills.backend',
-      icon: Server,
+      icon: faServer,
       skills: [
         { name: 'C#', color: 'text-purple-600' },
         { name: '.NET Core', color: 'text-purple-500' },
@@ -52,36 +61,34 @@ export class SkillsComponent {
         { name: 'Express.js', color: 'text-gray-600' },
         { name: 'Entity Framework', color: 'text-blue-500' },
         { name: 'Sequelize', color: 'text-blue-400' },
-        { name: 'Go', color: 'text-cyan-600' },
-        { name: 'Quarkus', color: 'text-red-600' },
+        { name: 'Business Central (AL)', color: 'text-blue-600' },
       ],
     },
     {
       titleKey: 'skills.cloud',
-      icon: Cloud,
+      icon: faCloud,
       skills: [
         { name: 'AWS', color: 'text-orange-600' },
         { name: 'Azure', color: 'text-blue-600' },
         { name: 'CI/CD', color: 'text-green-600' },
-        { name: 'Azure DevOps', color: 'text-blue-500' },
         { name: 'Git', color: 'text-orange-500' },
         { name: 'GitHub', color: 'text-gray-600' },
       ],
     },
     {
       titleKey: 'skills.database',
-      icon: Database,
+      icon: faDatabase,
       skills: [
         { name: 'SQL Server', color: 'text-red-600' },
         { name: 'MySQL', color: 'text-blue-500' },
-        { name: 'SQLite', color: 'text-blue-400' },
-        { name: 'Oracle', color: 'text-red-500' },
+        { name: 'PostgreSQL', color: 'text-blue-400' },
+        { name: 'MongoDB', color: 'text-green-500' },
         { name: 'SQL', color: 'text-gray-600' },
       ],
     },
     {
       titleKey: 'skills.architecture',
-      icon: Layers,
+      icon: faLayerGroup,
       skills: [
         { name: 'Onion Architecture', color: 'text-purple-500' },
         { name: 'CQRS + MediatR', color: 'text-blue-500' },
@@ -94,17 +101,26 @@ export class SkillsComponent {
   ];
 
   // Métodos para colores dinámicos basados en tema
-  getSkillColor(originalColor: string): string {
+  getTechnologyClasses(originalColor: string): string {
     if (this.themeService.isDark()) {
       return originalColor;
     }
 
-    // En tema claro, cambiar colores azules por #8a0808
     if (originalColor.includes('text-blue')) {
-      return 'text-[#8a0808]';
+      return originalColor.replace(/text-blue-\d+/, 'text-[#8a0808]');
     }
 
     return originalColor;
+  }
+
+  // Método para obtener clases de animación alternadas
+  getAnimationClass(index: number): string {
+    const patterns = [
+      'animate-slide-in-left',   // Desde izquierda
+      'animate-slide-in-up',     // Desde arriba
+      'animate-slide-in-right',  // Desde derecha
+    ];
+    return patterns[index % 3];
   }
 
   getIconColor(iconType: any): string {
@@ -113,37 +129,34 @@ export class SkillsComponent {
     if (this.themeService.isDark()) {
       // Colores originales para tema oscuro
       switch (iconType) {
-        case Monitor:
-          return `w-8 h-8 text-blue-400 group-hover:text-blue-300 ${baseClasses}`;
-        case Server:
-          return `w-8 h-8 text-green-400 group-hover:text-green-300 ${baseClasses}`;
-        case Cloud: // devops mapped to Cloud? In TS it was 'cloud' but switch had 'devops'. Let's check.
-          // The TS had 'cloud' in the array, but 'devops' in the switch.
-          // This means 'cloud' fell into default.
-          // I'll use Cloud here.
-          return `w-8 h-8 text-purple-400 group-hover:text-purple-300 ${baseClasses}`;
-        case Database:
-          return `w-8 h-8 text-yellow-400 group-hover:text-yellow-300 ${baseClasses}`;
-        case Layers: // architecture
-          return `w-8 h-8 text-pink-400 group-hover:text-pink-300 ${baseClasses}`;
+        case faDesktop:
+          return `text-blue-400 group-hover:text-blue-300 ${baseClasses}`;
+        case faServer:
+          return `text-green-400 group-hover:text-green-300 ${baseClasses}`;
+        case faCloud:
+          return `text-purple-400 group-hover:text-purple-300 ${baseClasses}`;
+        case faDatabase:
+          return `text-yellow-400 group-hover:text-yellow-300 ${baseClasses}`;
+        case faLayerGroup:
+          return `text-pink-400 group-hover:text-pink-300 ${baseClasses}`;
         default:
-          return `w-8 h-8 text-blue-400 group-hover:text-blue-300 ${baseClasses}`;
+          return `text-blue-400 group-hover:text-blue-300 ${baseClasses}`;
       }
     } else {
       // Colores personalizados para tema claro
       switch (iconType) {
-        case Monitor:
-          return `w-8 h-8 ${baseClasses}`;
-        case Server:
-          return `w-8 h-8 text-green-400 group-hover:text-green-300 ${baseClasses}`;
-        case Cloud:
-          return `w-8 h-8 text-purple-400 group-hover:text-purple-300 ${baseClasses}`;
-        case Database:
-          return `w-8 h-8 text-yellow-400 group-hover:text-yellow-300 ${baseClasses}`;
-        case Layers:
-          return `w-8 h-8 text-pink-400 group-hover:text-pink-300 ${baseClasses}`;
+        case faDesktop:
+          return `${baseClasses}`;
+        case faServer:
+          return `text-green-500 group-hover:text-green-600 ${baseClasses}`;
+        case faCloud:
+          return `text-purple-500 group-hover:text-purple-600 ${baseClasses}`;
+        case faDatabase:
+          return `text-yellow-500 group-hover:text-yellow-600 ${baseClasses}`;
+        case faLayerGroup:
+          return `text-pink-500 group-hover:text-pink-600 ${baseClasses}`;
         default:
-          return `w-8 h-8 ${baseClasses}`;
+          return `${baseClasses}`;
       }
     }
   }
@@ -154,7 +167,7 @@ export class SkillsComponent {
     }
 
     // En tema claro, usar #8a0808 para iconos que originalmente eran azules
-    if (iconType === Monitor || iconType === 'default') {
+    if (iconType === faDesktop || iconType === 'default') {
       return { color: '#8a0808' };
     }
 
@@ -167,5 +180,47 @@ export class SkillsComponent {
 
   getCategoryTitleStyles(): any {
     return this.themeService.isDark() ? { color: 'white' } : { color: 'white' };
+  }
+
+  getSkillIcon(skillName: string): any {
+    switch (skillName) {
+      case 'Angular': return faAngular;
+      case 'React': return faReact;
+      case 'TypeScript': return faCode; // No specific brand icon in free set usually, code is fine
+      case 'JavaScript': return faJs;
+      case 'HTML5': return faHtml5;
+      case 'CSS3': return faCss3Alt;
+      case 'Tailwind CSS': return faCss3Alt; // Reuse CSS or use wind icon if available (not in standard free brands often)
+      case 'Bootstrap': return faBootstrap;
+      case 'C#': return faCode; // C# doesn't have a direct icon in free brands
+      case '.NET Core': return faMicrosoft;
+      case 'ASP.NET Core MVC': return faMicrosoft;
+      case 'Node.js': return faNodeJs;
+      case 'Express.js': return faServer;
+      case 'Entity Framework': return faDatabase;
+      case 'Sequelize': return faDatabase;
+      case 'Business Central (AL)': return faMicrosoft;
+      case 'AWS': return faAws;
+      case 'Azure': return faMicrosoft;
+      case 'CI/CD': return faCogs;
+      case 'Git': return faGitAlt;
+      case 'GitHub': return faGithub;
+      case 'SQL Server': return faDatabase;
+      case 'MySQL': return faDatabase;
+      case 'PostgreSQL': return faDatabase;
+      case 'MongoDB': return faDatabase;
+      case 'SQL': return faDatabase;
+      case 'Onion Architecture': return faLayerGroup;
+      case 'CQRS + MediatR': return faCogs;
+      case 'Repository Pattern': return faDatabase;
+      case 'SOLID Principles': return faCode;
+      case 'MVC Pattern': return faLayerGroup;
+      case 'Scrum/Agile': return faUsers;
+      default: return faCode;
+    }
+  }
+
+  getSkillIconClass(skillName: string): string {
+    return ''; // Classes are handled by the parent container usually, or we can return text colors here if we want to override
   }
 }

@@ -31,6 +31,10 @@ export class TranslationService {
       es: 'Proyectos',
       en: 'Projects',
     },
+    'nav.experience': {
+      es: 'Experiencia',
+      en: 'Experience',
+    },
     'nav.education': {
       es: 'Educación',
       en: 'Education',
@@ -238,6 +242,44 @@ export class TranslationService {
     'education.status.completed': {
       es: 'Completado',
       en: 'Completed',
+    },
+
+    // Experience
+    'experience.title': {
+      es: 'Experiencia Profesional',
+      en: 'Professional Experience',
+    },
+    'experience.subtitle': {
+      es: 'Mi trayectoria laboral y los roles que he desempeñado en el ámbito tecnológico.',
+      en: 'My career path and the roles I have played in the technology field.',
+    },
+    'experience.minecon.role': {
+      es: 'Junior Software Developer',
+      en: 'Junior Software Developer',
+    },
+    'experience.minecon.jobType': {
+      es: 'Jornada completa',
+      en: 'Full-time',
+    },
+    'experience.minecon.company': {
+      es: 'MINECON, S.A',
+      en: 'MINECON, S.A',
+    },
+    'experience.minecon.period': {
+      es: 'Enero 2026 - Presente',
+      en: 'January 2026 - Present',
+    },
+    'experience.minecon.location': {
+      es: 'Santo Domingo Oeste, República Dominicana',
+      en: 'Santo Domingo Oeste, Dominican Republic',
+    },
+    'experience.minecon.locationType': {
+      es: 'Presencial',
+      en: 'On-site',
+    },
+    'experience.minecon.description': {
+      es: 'Como desarrollador de software, participo en el desarrollo e integración de soluciones tecnológicas para distintos sistemas y áreas dentro del grupo empresarial.\n\nMe enfoco en:\n• Desarrollo de aplicaciones y servicios backend utilizando C# .NET, orientados a procesos internos y a la integración entre sistemas.\n• Creación de APIs y servicios web (REST/SOAP) para la comunicación entre aplicaciones propias, sistemas externos y el ERP.\n• Desarrollo de interfaces web con React, enfocadas en herramientas operativas y administrativas.\n• Integración y personalización de Microsoft Dynamics 365 Business Central (AL) según las necesidades de la empresa y compañías asociadas.\n• Automatización de procesos de negocio relacionados con operaciones, logística, inventario y contabilidad.\n• Soporte técnico, mantenimiento evolutivo y mejora continua de las soluciones implementadas.\n• Documentación técnica y funcional para asegurar continuidad, escalabilidad y soporte.',
+      en: 'As a software developer, I participate in the development and integration of technological solutions for different systems and areas within the business group.\n\nI focus on:\n• Development of backend applications and services using C# .NET, oriented to internal processes and system integration.\n• Creation of APIs and web services (REST/SOAP) for communication between proprietary applications, external systems, and the ERP.\n• Development of web interfaces with React, focused on operational and administrative tools.\n• Integration and customization of Microsoft Dynamics 365 Business Central (AL) according to the needs of the company and associated companies.\n• Automation of business processes related to operations, logistics, inventory and accounting.\n• Technical support, evolutionary maintenance and continuous improvement of implemented solutions.\n• Technical and functional documentation to ensure continuity, scalability and support.',
     },
 
     // Certificates

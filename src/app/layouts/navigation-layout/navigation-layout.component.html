@@ -3,20 +3,24 @@
     class="backdrop-blur-sm rounded-full p-3 shadow-2xl border border-gray-400/30 mobile-nav-container"
   >
     <ul class="flex flex-col space-y-3 mobile-nav-list">
-      <li *ngFor="let item of navigationItems" class="mobile-nav-item">
+      <li
+        *ngFor="let item of navigationItems; let i = index"
+        class="mobile-nav-item"
+      >
         <a
           (click)="scrollToSection(item.href)"
           [class]="
             isActive(item.href) ? getActiveClasses() : getInactiveClasses()
           "
-          class="flex items-center justify-center w-12 h-12 rounded-full transition-transform duration-300 ease-in-out hover:scale-105 group relative cursor-pointer mobile-nav-button hover-glow"
+          class="flex items-center justify-center w-14 h-14 rounded-full transition-transform duration-300 ease-in-out hover:scale-105 group relative cursor-pointer mobile-nav-button hover-glow gentle-float"
+          [ngClass]="'float-delay-' + ((i % 6) + 1)"
           [title]="getNavItemName(item.nameKey)"
         >
-          <lucide-icon
-            [img]="item.icon"
-            class="w-5 h-5 md:w-6 md:h-6"
+          <fa-icon
+            [icon]="item.icon"
             [style.color]="getIconColor(isActive(item.href))"
-          ></lucide-icon>
+            [style.font-size]="'2rem'"
+          ></fa-icon>
 
           <span
             class="absolute right-16 bg-white/90 text-black text-sm px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 mobile-tooltip"
